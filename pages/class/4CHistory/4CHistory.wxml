@@ -1,0 +1,14 @@
+<view class='info'>
+  <view class='item' data-item='{{item}}' wx:for="{{list}}"  bindtap='goInfo'>
+    <view class='left c3'>GIA {{item.num}}</view>
+    <view class='right c6 f24'>
+      <view>{{item.date}}</view>
+      <image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image>
+    </view>
+  </view>
+</view>
+
+<view class='nothing' hidden='{{list.length !== 0}}'>
+  <!-- <image src='/images/noImg/img-noShop.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image> -->
+  <view>没有查询记录</view>
+</view>

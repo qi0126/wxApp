@@ -1,0 +1,84 @@
+<view class='shopCartWarp' catchtouchmove="ture" hidden="{{!isShow}}">
+  <view class='slideh' animation="{{animationData}}" catchtap='hideShopCartDialog'></view>
+  <view style='height: 100%; background: #fff'>
+  <view class='shopCartcontent' style='height: {{contentHeight}}rpx'>
+    <!-- head -->
+    <view class='shopCartHead'>
+      <view class='picWrap'>
+        <image class='shopProduct' src="{{$img}}{{image}}"></image>
+      </view>
+      <view class='textWrap'>
+        <view class='shopPirce'>¥ {{result.price}}</view>
+        <view class='shopNumber'>名称编号：{{result.code}}</view>
+      </view>
+      <image src='/images/index/Bitmap.png' class='Bitmap' bindtap='hideShopCartDialog'></image>
+    </view>
+    <!-- middle -->
+    <view class='shopCartMiddle'>
+      <view class='leftBtnWrap'>
+        <view class='shopPapiton'>材质：</view>
+        <view class='leftBtn'>
+          <picker bindchange="oneChange" value="{{oneIndex}}" range="{{oneList}}" range-key='val'>
+            <view class="picker">
+              {{oneList[oneIndex].val || oneList[0].val}}
+            </view>
+          </picker>
+          <image class='backArrow' src='/images/index/back.png'></image>
+        </view>
+      </view>
+
+      <!-- 尺寸 -->
+      <view class='rightBtnWrap' wx:if="{{twoList.length > 0}}">
+        <view class='shopPapiton'>尺寸：</view>
+        <view class='rightBtn'>
+          <picker bindchange="twoChange" value="{{twoIndex}}" range="{{twoList}}" range-key='val'>
+            <view class="picker">
+              {{twoList[twoIndex].val || twoList[0].val}}
+            </view>
+          </picker>
+          <image class='backArrow' src='/images/index/back.png'></image>
+        </view>
+      </view>
+      <view class='rightBtnWrap' wx:else></view>
+      
+      <!-- 男士尺寸 -->
+      <view class='rightBtnWrap' wx:if="{{threeList.length > 0}}">
+        <view class='shopPapiton'>男士尺寸：</view>
+        <view class='rightBtn'>
+          <picker bindchange="twoChange" value="{{threeIndex}}" range="{{threeList}}" range-key='val'>
+            <view class="picker">
+              {{threeList[threeIndex].val || threeList[0].val}}
+            </view>
+          </picker>
+          <image class='backArrow' src='/images/index/back.png'></image>
+        </view>
+      </view>
+      <view class='rightBtnWrap' wx:else></view>
+
+      <!-- 女士尺寸 -->
+      <view class='rightBtnWrap' wx:if="{{fourList.length > 0}}">
+        <view class='shopPapiton'>女士尺寸：</view>
+        <view class='rightBtn'>
+          <picker bindchange="twoChange" value="{{fourIndex}}" range="{{fourList}}" range-key='val'>
+            <view class="picker">
+              {{fourList[fourIndex].val || fourList[0].val}}
+            </view>
+          </picker>
+          <image class='backArrow' src='/images/index/back.png'></image>
+        </view>
+      </view>
+      <view class='rightBtnWrap' wx:else></view>
+
+    </view>
+    <!-- foot -->
+    <view class='shopCartFoot'>
+      <view class='computNumber'>数量：</view>
+      <view class='computBtn'>
+        <view class='minus' catchtap='decrease'>-</view>
+        <view class='number'>{{num}}</view>
+        <view class='add' catchtap='increase'>+</view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

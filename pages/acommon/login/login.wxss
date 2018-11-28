@@ -1,0 +1,66 @@
+.layer {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 28rpx;
+  color: #000;
+  background: rgba(0, 0, 0, .3);
+  z-index: 3 
+}
+
+.layer-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 74%;
+  height: 540rpx;
+  background: #fff;
+  border-radius: 12rpx;
+}
+
+.tit {
+  text-align: center;
+  margin-top: 80rpx;
+  margin-bottom: 80rpx;
+  letter-spacing: 10rpx;
+}
+
+.info {
+  margin-bottom: 80rpx;
+  padding: 0 60rpx;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  line-height: 1.8 
+}
+
+.btn::after {
+  border: none
+}
+
+.btn-radius {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 340rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  border: 1px solid #C1A15C;
+  border-radius: 20rpx;
+}
+
+.btn-radius > image {
+  position: relative;
+  right: 64rpx;
+}
+
+.falseImg {
+  margin-top: 40rpx;
+}

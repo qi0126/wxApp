@@ -1,0 +1,60 @@
+<view>
+    <view class='searchTitle'>
+      EZJEWELRY
+    </view>
+
+    <view class='searchCentent'>
+       <image class="search-img" src="/images/index/icon-sear.png"></image>
+       <input type="text" placeholder="搜索商品/款式名称/材质" placeholder-class="placeholder" 
+       class='searchInput' bindconfirm="onBindConfirm" value='{{Keyword}}'/>
+       <view class='cancel' bindtap="cancelSearch">取消</view>
+    </view>
+    <!-- 新品热卖 -->
+    <view class='heatSell'>
+      <view class='title'>#新品热卖</view>
+      <view>
+        <scroll-view class="scrollWrap" scroll-x="true" bindscroll="scroll" style="width: 100%">
+          <block wx:for="{{hotSaleData.productListFroms}}" wx:for-item="item" wx:for-index="index" wx:key="item.productId">
+              <view  class="scrollItem" data-productId="{{item.productId}}" catchtap='checkProductDetail'>
+                <image src="{{$img}}{{item.productImageUrl}}"></image>
+              </view>
+          </block>
+
+          <!-- <view  class="scrollItem"><image src="/images/index/demo1.jpg"></image></view> -->
+        </scroll-view>
+        <view class='line'></view>
+      </view>
+    </view>
+    <!-- 历史1 -->
+    <view class='searchHistory'>
+
+      <view wx:if="{{showHistory}}">
+        <view class='sign' wx:if="{currentPage != 'class'}">
+          <block wx:for="{{hotSaleData.brandCategoryFroms}}" wx:for-item="item"  wx:for-index="index" wx:key="item.categoryId">
+              <view class='item' data-keyword="{{item.categoryName}}" catchtap='keyWordSearch'>#{{item.categoryName}}</view>
+          </block>
+            <!-- <view class='item'>#戒指</view> -->
+        </view>
+        <view class='goHistory' bindtap='historyFun'>
+          回忆你的搜索 >
+        </view>
+      </view>
+      <!--历史2  -->
+      <view wx:if="{{!showHistory}}">
+        <view class='backHistory' bindtap='cancelHistory'>回忆你的搜索 ∨</view>
+        <view class='ul'>
+          <block wx:for="{{searchHistory}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <view class='li'>
+              <view class='left' data-keyword="{{item}}" catchtap='keyWordSearch'>{{item}} </view>
+              <view class='right' data-num="{{index}}" catchtap='delHistory'>X</view>
+            </view>
+            </block>
+             <!-- <view class='li'>
+              <view class='left'>订婚戒指 </view>
+              <view class='right'>X</view>
+            </view> -->
+        </view>
+      </view>
+
+    </view>
+</view>

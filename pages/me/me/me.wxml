@@ -1,0 +1,98 @@
+<view class='head'>
+  <view class='h-cont' bindtap='goChangeInfo'>
+    <view class='hc-left'>
+      <image class='img-head' mode='widthFix' src='{{avatarUrl}}' style='width: 186rpx; height: 186rpx'></image>
+      <image class='img-sex' mode='widthFix' src='{{user.sex === "1" ? sexImg.boy : sexImg.girl }}' style='width: 38rpx;'></image>
+    </view>
+    <view class='h-cont-right'>
+       <view>{{nickName}}</view> 
+       <view><image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image></view> 
+    </view>
+  </view>
+  <!-- 积分  -->
+  <view class='h-bottom'>
+    <view>平台积分：0 </view>
+    <view>店铺积分：0 </view>
+  </view>
+
+</view>
+
+<view class='listWrap'>
+
+  <view class='m-item' catchtap='goWishList'>
+    <view class='m-left'>
+      <view class='ml-tit'>我的心愿单</view>
+      <view class='ml-num'>{{wishLength}}</view>
+    </view>
+
+    <view class='m-img'>
+      <view class='mi-box' wx:for="{{wishList}}" wx:key="id">
+        <image mode='widthFix' src='{{$img}}{{item.productImageUrl}}' style='width: 100rpx; height: 100rpx'></image>
+      </view>
+    </view>
+    <view class='m-right' hidden='{{!loginStatu}}'>
+      <view class='m-dot' >
+        <image mode='widthFix' src='/images/me/icon-dot.png' style='width: 60rpx'></image>
+      </view>
+      <view class='m-arrows' >
+        <image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image>
+      </view>
+    </view>
+
+  </view>
+ 
+  <view class='m-item' catchtap='goOrder'>
+    <view class='m-left'>
+      <view class='ml-tit'>我的订单</view>
+      <view class='ml-num'>{{orderLength}}</view>
+    </view>
+    <view class='m-img'>
+      <view class='mi-box' style='margin-right: 60rpx' wx:for="{{orderList}}" wx:key="id">
+        <image mode='widthFix' src='{{$img}}{{item.proList[0].picUrl}}' style='width: 100rpx; height: 100rpx'></image>
+        <view class='mi-tag'>{{item.currentHanleViewName}}</view>
+      </view>
+      <!-- <view class='mi-box'>
+        <image mode='widthFix' style='width: 100rpx; height: 100rpx'></image>
+        <view class='mi-tag'>未发货</view>
+      </view> -->
+    </view>
+    <view class='m-right' hidden='{{!loginStatu}}'>
+      <view class='m-dot'>
+        <image mode='widthFix' src='/images/me/icon-dot.png' style='width: 60rpx'></image>
+      </view>
+      <view class='m-arrows' >
+        <image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='m-item' catchtap='goAddr'>
+    <view class='m-left'>
+      <view class='ml-tit'>收获地址</view>
+      <view class='ml-num'>{{addr.rowSize}}</view>
+    </view>
+
+    <view class='m-arrows' hidden='{{!loginStatu}}'>
+      <image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image>
+    </view>
+  </view>
+
+  <view class='m-item' catchtap='goContact'>
+    <view class='m-left'>
+      <view class='ml-tit'>联系客服</view>
+    </view>
+
+    <view class='m-arrows'>
+      <image mode='widthFix' src='/images/me/icon-back.png' style='width: 18rpx'></image>
+    </view>
+  </view>
+
+</view>
+
+<view>
+
+</view>
+
+<!-- 登陆弹窗 -->
+<login id="showLogin" bind:loginTrue="loginTrue"></login>

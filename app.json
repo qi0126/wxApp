@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index/index",
+    "pages/designer/subDesignerDisp/subDesignerDisp",
+    "pages/class/4CHistory/4CHistory",
+    "pages/class/GIA/GIA",
+    "pages/class/diamondRotate/diamondRotate",
+    "pages/product/productDetail/productDetail",
+    "pages/me/me/me",
+    "pages/editMe/editMe",
+    "pages/me/getPhone/getPhone",
+    "pages/shop/shop/shop",
+    "pages/me/order/order",
+    "pages/designer/designer/designer",
+    "pages/product/productOrder/productOrder",
+    "pages/class/queryResult/queryResult",
+    "pages/me/wishList/wishList",
+    "pages/class/class/class",
+    "pages/me/orderPayWay/orderPayWay",
+    "pages/class/subClassDisp/subClassDisp",
+    "pages/class/diamondQuery/diamondQuery",
+    "pages/class/4C/4C",
+    "pages/search/search/search",
+    "pages/search/searchResult/searchResult",
+    "pages/me/contact/contact",
+    "pages/me/orderDetail/orderDetail",
+    "pages/me/address/address",
+    "pages/me/addAddr/addAddr",
+    "pages/cart/cart/cart",
+    "pages/designer/detailToDes/detailToDes",
+    "pages/acommon/seriesDesc/seriesDesc"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "EZJ",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#C3A25F",
+    "color": "#bbb",
+    "backgroundColor": "#232321",
+    "list": [
+      {
+        "pagePath": "pages/index/index/index",
+        "text": "首頁",
+        "iconPath": "./images/index/icon-index.png",
+        "selectedIconPath": "./images/index/icon-indexon.png"
+      },
+      {
+        "pagePath": "pages/class/class/class",
+        "text": "分类",
+        "iconPath": "./images/index/icon-class.png",
+        "selectedIconPath": "./images/index/icon-classon.png"
+      },
+      {
+        "pagePath": "pages/designer/designer/designer",
+        "text": "设计师款",
+        "iconPath": "./images/index/icon-des.png",
+        "selectedIconPath": "./images/index/icon-deson.png"
+      },
+      {
+        "pagePath": "pages/shop/shop/shop",
+        "text": "购物车",
+        "iconPath": "./images/index/icon-shop.png",
+        "selectedIconPath": "./images/index/icon-shopon.png"
+      },
+      {
+        "pagePath": "pages/me/me/me",
+        "text": "我的",
+        "iconPath": "./images/index/icon-me.png",
+        "selectedIconPath": "./images/index/icon-meon.png"
+      }
+    ]
+  }
+}

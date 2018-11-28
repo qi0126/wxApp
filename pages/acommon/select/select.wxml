@@ -1,0 +1,107 @@
+<!-- 筛选弹出层 -->
+<view class="modal-box" hidden="{{hideTF}}"  bindtouchstart="touchstart" bindtouchmove="touchmove">
+  <view class="modal-body" animation="{{animationData}}" >
+    <view class="modal-content"> 
+      <view class="modalBoxCC scroll-class">
+        <scroll-view scroll-y style='height: 100%'>
+          <view class="modalBoxTop">筛选作品</view>
+ 
+          <!-- 适合人群 -->
+          <view class="selectedSubDiv" style='padding-top: 40rpx'  wx:if="{{selectData.commons}}">
+            <view class="subDivOne">
+              <view class="subDivName">适合人群
+                <image src="{{commonsALLChecked==true?imgSelect.T:imgSelect.F}}" class="selectPng" catchtap="commonsAllSelect" />
+              </view>
+              <view class="subDivFlex">
+                <view class="checkboxListDiv" wx:for="{{selectData.commons}}" wx:key="id" data-item='{{item}}'>
+                  <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='ManCheckbox' />
+                  <span catchtap='ManCheckbox' data-item='{{item}}'>{{item.commonName}}</span>
+                </view> 
+              </view>
+            </view>
+          </view>
+
+          <!-- 价格 -->
+          <view class="selectedSubDiv">
+            <view class="subDivOne">
+              <view class="subDivName">价格</view>
+              <view class="subDivFlex">
+                <view class="checkboxListDiv" wx:for="{{priceList}}" wx:key="id">
+                  <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='PriceCheckbox' />
+                  <span catchtap='PriceCheckbox' data-item='{{item}}'>{{item.value}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <!-- 材质 -->
+          <view class="selectedSubDiv" wx:if="{{selectData.goldprices}}">
+            <view class="subDivOne">
+              <view class="subDivName">材质
+                <image src="{{goldALLChecked?imgSelect.T:imgSelect.F}}" class="selectPng" catchtap="goldALLSelect" />
+              </view>
+              <view class="subDivFlex">
+                <view class="checkboxListDiv" wx:for="{{selectData.goldprices}}" wx:key="id">
+                  <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='MaterCheckbox' />
+                  <span catchtap='MaterCheckbox' data-item='{{item}}'>{{item.textureName}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <!-- 系列 -->
+          <view class="selectedSubDiv" wx:if="{{selectData.seriecs}}">
+            <view class="subDivOne">
+              <view class="subDivName">系列
+                <image src="{{seriesALLChecked?imgSelect.T:imgSelect.F}}" class="selectPng" catchtap="seriesALLSelect" />
+              </view>
+              <view class="subDivFlex">
+                <view class='seriesFlex' bindtap='checkStatus'>
+                  <view>
+                  <image src='{{checkStatusTF ? imgStatus.b : imgStatus.a}}' class="checkedTrue" /> 不限系列</view>
+                  <view class="iconOneDiv">
+                    <image wx:if="{{checkStatusTF==false}}" src="/images/index/iconOne.png" class="iconOne" />
+                    <image wx:else src="/images/index/iconOneChecked.png" class="iconTwo" />
+                  </view>
+                </view>
+              </view>
+                <!-- 系列列表 -->
+                <view style='margin-top: 10rpx' wx:if="{{checkStatusTF === true}}">
+                  <view class="checkboxListDiv" data-item='{{item}}'  data-index='{{index}}' catchtap='seriesCheckbox' wx:for="{{selectData.seriecs}}" wx:key="id">
+                    <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue"  /> {{item.seriecsName}}
+                  </view>
+                </view>
+            </view>
+          </view>
+ 
+          <!-- 分类 -->
+          <view class="selectedSubDiv" wx:if="{{selectData.category}}">
+            <view class="subDivOne">
+              <view class="subDivName">
+                分类
+                <image src="{{categoryALLChecked==true?imgSelect.T:imgSelect.F}}" class="selectPng" catchtap="categoryALLSelect" />
+              </view>
+              <view class="subDivFlex">
+                <view class="checkboxListDiv" wx:for="{{selectData.category}}" wx:key="id">
+                  <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='CategoryCheckbox' />
+                  <span catchtap='CategoryCheckbox' data-item='{{item}}'>{{item.commonName}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view style='height: 100rpx'></view>
+        </scroll-view>
+      </view>
+      <view class="modalBoxBottom">
+        <button class='btn btn-default boxBottomLeft'  bindtap="reSet">全部重置</button>
+        <button class='btn btn-default boxBottomRight' bindtap="goSearch">搜索</button>
+        <!-- <view class="boxBottomLeft" bindtap="reSet">全部重置</view>
+        <view class="boxBottomRight" bindtap="goSearch">搜索</view> -->
+      </view>
+
+    </view>
+  </view>
+  <view class="modal-right" bindtap="hide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+</view>

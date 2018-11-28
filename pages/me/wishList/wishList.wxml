@@ -1,0 +1,54 @@
+<view class="tit" >
+  <view class='tit-left' hidden='{{list.length === 0}}' >
+    <view class='allcheckbox' catchtap='checkboxAll'  >
+      <image mode='widthFix' src="{{checkboxAll ? imgStatus.a : imgStatus.b}}" style="width: 20rpx; height: 20rpx"></image>
+      <text>全选</text>
+    </view>
+    <view class='del' catchtap='defDel'>移除</view>
+  </view>
+  <view class='tit-left' hidden='{{list.length !== 0}}'></view>
+  <view class='tit-right'>
+    <image mode='widthFix' bindtap='goShop' src='/images/me/img-shop.png' style='width:43rpx; height: 47rpx;'></image>
+  </view>
+</view>
+ 
+<view class='list' wx:if='{{list.length !== 0}}'>
+  <scroll-view scroll-y style='height: 100%'>
+    <view class='item' wx:for="{{list}}" wx:key="index">
+      <view class='checkbox' data-index='{{index}}' catchtap='checkbox'>
+        <image mode='widthFix' src="{{item.checkbox ? imgStatus.a : imgStatus.b}}" style="width: 20rpx; height: 20rpx" ></image>
+      </view>
+      <view class='left'>
+        <image mode='widthFix' src='{{$img}}{{item.productImageUrl}}' style="width: 220rpx; height: 190rpx;"></image>
+      </view>
+      <view class='t-right'>
+        <view class='r-tit'>{{item.productName}}</view>
+        <view class='r-exted'>
+          <!-- <view class='re-left'>
+            <text> 材质： <text></text>pt950</text>
+            <text> 尺寸：<text></text>15</text>
+          </view>
+          <view class='re-right'>X1</view> -->
+        </view>
+        <view class='r-price'>
+          <text>¥ {{item.resalePrice}}</text>
+          <view class='rp-addshop' data-item='{{item}}' data-index='{{index}}' bindtap='goShopCart'>加入购物袋</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class='nothing' hidden='{{list.length !== 0}}'>
+  <image src='/images/noImg/img-noorder.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image>
+  <view>您还没有相关心愿单</view>
+</view>
+
+  <!-- 购物车 -->
+  <addSize result="{{result}}" id="addSize" image="{{propImg}}" oneList="{{oneList}}" twoList="{{twoList}}" propShow="{{propShow}}" bind:cancelEvent="cancelEvent" bind:changeParams="changeParams">
+  </addSize>
+
+<view class='footer' hidden='{{!propShow}}'>
+  <button class='btn btn-default' bindtap='handleTrue'>确定</button>
+</view>
+

@@ -1,0 +1,176 @@
+<view class='top'>
+  <view class='t-tit'>钻石4C</view>
+  <view class='t-section'>4C是您判断一颗钻石价值与品质的衡量标准。4C即钻石的克拉</view>
+  <view class='t-section'>EZ Diamond秉承对完美的追求，致力于为客户甄选至臻至美的钻石，我们每一颗钻石的品质均是切工3EX、无荧光、无奶咖绿的优级钻石，且提供国际GIA证书。</view>
+</view>
+
+<view class='section'>
+  <view class='s-tit'>
+    <view class='st-left'>
+      <image src='/images/class/img-carat.png' mode='widthFix' style='width: 110rpx'></image> 克拉 </view>
+    <!-- <view class='st-right' data-data='carat' catchtap='playVideo'>查看视频</view> -->
+  </view>
+  <view class='video' >
+    <video id="caratVideo" src="https://image.ezgold.cn/4Cvideo/video0.mp4"
+       ></video>
+  </view>
+  <view class='s-info'>钻石重量以克拉（又称卡）计算。1克拉=200毫=0.2克。一克拉分为一百份，每一份称为一分。0.75克拉(3/4克拉)又称为75分，0.01克拉为1分。</view>
+  <view class='s-show'>
+    <view>滑动滑块，预览大小</view>
+    <view style='margin-right: 80rpx; margin-bottom: 40rpx'>
+      <image src='{{$simg}}/class/color/D@2x.png' class='sizeimg' mode='widthFix' style='transform: scale({{caratSize}}, {{caratSize}});'></image>
+    </view>
+  </view>
+  <view class='s-slide'>
+    <view class='ss-hr'>
+      <image src='/images/class/img-diamondhr.png' mode='widthFix' style="width: 710rpx;"></image>
+      <view class='ss-tag'>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+      <view class='ss-num'>
+        <view wx:for="{{caratSizeList}}">{{item}}</view>
+      </view>
+    </view>
+    <view class='ss-scale' style='left: {{caratScale}}px' data-data='caratScale' data-offsetindex='{{caratScaleOffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+      <image src='/images/class/img-size.png' mode='widthFix' style="width: 48rpx"></image>
+    </view>
+  </view>
+
+  <view class='s-unit'>:ct</view>
+</view>
+
+
+<view class='section'>
+  <view class='s-tit'>
+    <view class='st-left'>
+      <image src='/images/class/img-color.png' mode='widthFix' style='width: 106rpx;'></image> 颜色 </view>
+    <!-- <view class='st-right'>查看视频</view> -->
+  </view>
+  <view class='video' >
+    <video id="colorVideo" src="https://image.ezgold.cn/4Cvideo/video0.mp4"
+       ></video>
+  </view>
+  <view class='s-info'>白色或无色钻石的色彩浓度多样，从亮白到浅黄，种类繁多。这些微妙的差别按D（无色）到K（浅黄色）分为不同等级。钻石的颜色越接近纯净的无色，就代表它的质量非常优异。</view>
+  <view class='s-show'>
+    <view>滑动滑块，预览颜色</view>
+    <view style='margin-right: 40rpx'>
+      <image class='colorimg' mode='widthFix' style='width: 122rpx; background-image: url({{colorScaleBgTrue}})'></image>
+    </view>
+  </view>
+  <view class='s-slide'>
+    <view class='ss-hr'>
+      <image src='/images/class/img-diamondhr.png' mode='widthFix' style="width: 710rpx;"></image>
+      <view class='ss-tag'>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+      <view class='ss-num'>
+        <view>D</view>
+        <view>E</view>
+        <view>F</view>
+        <view>G</view>
+        <view>H</view>
+        <view>I</view>
+        <view>J</view>
+      </view>
+    </view>
+    <view class='ss-scale' style='left: {{colorScale}}px' data-data='colorScale' data-offsetindex='{{colorScaleOffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+      <image src='/images/class/img-size.png' mode='widthFix' style="width: 48rpx"></image>
+    </view>
+  </view>
+</view>
+
+<view class='section'>
+  <view class='s-tit'>
+    <view class='st-left'>
+      <image src='/images/class/img-clarity.png' mode='widthFix' style='width: 120rpx;'></image> 净度 </view>
+    <!-- <view class='st-right'>查看视频</view> -->
+  </view>
+  <view class='video'>
+    <video id="clarityVideo" src="https://image.ezgold.cn/4Cvideo/video0.mp4"
+      ></video>
+  </view>
+  <view class='s-info'>大多数钻石都有细小的、称为包含物的瑕疵。钻石净度是 4C 中识别度最低的一个，因为大部分包含物都是显微镜可见。杂质和瑕疵越少，钻石的净度就越高。净度按FL（无瑕）到I（具内含物）分级。</view>
+  <view class='s-show'>
+    <view>滑动滑块，预览净度</view>
+    <view style='margin-right: 40rpx'>
+      <image class='caimg' mode='widthFix' style='background-image: url({{clarityScaleBgTrue}})'></image>
+    </view>
+  </view>
+  <view class='s-slide'>
+    <view class='ss-hr'>
+      <image src='/images/class/img-diamondhr.png' mode='widthFix' style="width: 710rpx;"></image>
+      <view class='ss-tag'>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+      <view class='ss-num'>
+        <view>VVSI</view>
+        <view>VVS2</view>
+        <view>VS1</view>
+        <view>VS2</view>
+        <view>SI1</view>
+        <view>SI2</view>
+      </view>
+    </view>
+    <view class='ss-scale' style='left: {{clarityScale}}px' data-data='clarityScale' data-offsetindex='{{clarityScaleOffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+      <image src='/images/class/img-size.png' mode='widthFix' style="width: 48rpx"></image>
+    </view>
+  </view>
+</view>
+
+<view class='section'>
+  <view class='s-tit'>
+    <view class='st-left'>
+      <image src='/images/class/img-cut.png' mode='widthFix' style='width: 60rpx;'></image> 切工 </view>
+    <!-- <view class='st-right'>查看视频</view> -->
+  </view>
+  <view class='video'>
+    <video id="cutVideo" src="https://image.ezgold.cn/4Cvideo/video0.mp4"
+      ></video>
+  </view>
+  <view class='s-info'>钻石切工（Cut）并非指钻石形状，而是指钻石刻面的切磨比例和排列以及工艺质量。 钻石的亮度、闪烁和火彩是由切工决定的。 切工的等级包括从“极优”到“不良”的几个等级。</view>
+  <view class='s-show'>
+    <view>滑动滑块，预览切工</view>
+    <view style='margin-right: 40rpx'>
+      <image class='cutImg' mode='widthFix' style='background-image: url({{cutScaleBgTrue}})'></image>
+    </view>
+  </view>
+  <view class='s-slide'>
+    <view class='ss-hr'>
+      <image src='/images/class/img-diamondhr.png' mode='widthFix' style="width: 710rpx;"></image>
+      <view class='ss-tag'>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+      <view class='ss-num'>
+        <view>EX</view>
+        <view>VG</view>
+        <view>GD</view>
+        <view>FAIR</view>
+      </view>
+    </view>
+    <view class='ss-scale' style='left: {{cutScale}}px' data-data='cutScale' data-offsetindex='{{cutScaleOffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+      <image src='/images/class/img-size.png' mode='widthFix' style="width: 48rpx"></image>
+    </view>
+  </view>
+</view>

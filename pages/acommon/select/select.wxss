@@ -1,0 +1,188 @@
+/* 筛选弹出层样式 */
+
+.hideWin {
+  width: 385rpx;
+}
+
+.selectPng {
+  width: 61rpx;
+  height: 28rpx;
+  margin: 0 10rpx;
+}
+
+.modal-box {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+
+.modal-body {
+  position: relative;
+  width: 680rpx;
+  height: 100vh;
+  left: -680rpx
+}
+
+.modal-right {
+  flex:1;
+}
+
+.modal-right image {
+  position: fixed;
+  right: 15rpx;
+  top: 48%;
+}
+
+.modal-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: #fff;
+}
+
+.modalBoxTop {
+  height: 100rpx;
+  background: rgba(248, 248, 248, 1);
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: 500;
+  color: rgba(36, 36, 34, 1);
+  line-height: 42rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalBoxCC {
+  flex: 1;
+}
+
+.selectedSubDiv {
+  min-height: 100rpx;
+  padding: 0 28rpx;
+  padding-bottom: 6rpx;
+  padding-top: 100rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  position: relative;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.subDivOne {
+  line-height: 2;
+}
+
+.subDivName {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: rgba(36, 36, 34, 1);
+}
+
+.subDivName > image {
+  margin-left: 20rpx;
+}
+
+.subDivFlex {
+  display: flex;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+
+.seriesFlex {
+  padding-right: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .seriesFlex > view {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.checkboxListDiv {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  min-width:102px;
+  padding-right:20rpx;
+  margin-bottom:16rpx;
+}
+
+.checkboxListDiv > image {
+  margin-right: 12rpx;
+}
+
+.modalBoxBottom {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+
+.boxBottomLeft {
+  flex: 1;
+  background: rgba(34, 34, 33, 1);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 0;  
+}
+
+.boxBottomRight {
+  flex: 1;
+  background: rgba(16, 16, 16, 1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;  
+}
+
+/* checkedTrue.png图标样式 */
+
+.checkedTrue {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* checkedFalse.png图标样式 */
+
+.checkedFalse {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* returnWin.png图标样式 */
+
+.returnWin {
+  width: 35rpx;
+  height: 40rpx;
+}
+
+.iconOneDiv {
+
+}
+
+.iconOne {
+  width: 15rpx;
+  height: 22rpx;
+}
+
+.iconTwo {
+  width: 23rpx;
+  height: 15rpx;
+}
+
+.scroll-class {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

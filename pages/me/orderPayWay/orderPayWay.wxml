@@ -1,0 +1,28 @@
+<!-- 地址 -->
+<view class='price'>
+  <view class='p-tit'>合计金额</view>
+  <view class='p-price'>¥ 10288.00</view>
+  <view class='p-orderno'>订单编号：47646746576890</view>
+</view>
+
+<!-- 支付信息 -->
+<view class='pay'>
+  <view class='supportWrap'>
+    <view class='support'>请选择在线支付方式</view>
+  </view>
+  <!-- 微信确认 -->
+  <view class='wxConfirm'>
+    <image class='logo' src="/images/product/wx.png" mode='widthFix' style='width: 108rpx'></image>
+    <view class='wxDes'>
+      <view class='first'>微信支付</view>
+      <view class='second'>微信安全支付</view>
+    </view>
+    <view class='circle' bindtap='wxConfirmFun'>
+      <image src='/images/product/Bitmap1.png' mode='widthFix' style='width: 40rpx' wx:if="{{wxChecked}}"></image>
+    </view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class='foot'>
+  <button class='btn btn-default foot-bottom'>微信支付  <text>￥10288.00</text> </button>
+</view>

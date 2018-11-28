@@ -1,0 +1,149 @@
+<view class="topMenuOne" style="flex-direction:row;">
+  <view class="topOneLeft" bindtap="designerShow">
+    <image src="/images/index/proPoint.png" class="proPoint" /> 
+    <text wx:if="{{desInfo}}">{{desInfo.designerName}}的作品</text> 
+    <text wx:if="{{desInfoSeries}}">{{desInfoSeries.seriecsName}}系列</text> 
+  </view>
+  <view class="topOneRigth">
+    <span class="topRigthBtn">
+      <button class="btn btn-default selectBtnOne" bindtap="show">筛选</button>
+    </span>
+    <span class="topRigthImg">
+      <image src="/images/me/img-shop.png" bindtap='goShop' class="icon-shop" />
+    </span>
+  </view>
+</view>
+
+<view class="flex-wrp">
+  <view wx:if="{{proList.length === 0}}" class="noProDiv">
+    <image src="/images/noImg/img-nopro.png" class="noPro" mode='widthFix' />
+    <view class='noProText'>暂无您要的产品哦！</view>
+  </view>
+
+  <view class="flex-item imDispBigDiv" wx:for="{{proList}}" wx:key="{{item.id}}" data-item='{{item}}'>
+    <view catchtap='RouterCheck' class='imgDispTop' data-item='{{item}}'>
+      <image src="{{$img}}{{item.productImageUrl}}" class="imgDisp" mode='widthFix' style='width:340rpx;' />
+    </view>
+    <view class="imgNameTop" catchtap='RouterCheck' data-item='{{item}}'>{{item.productName}}</view>
+    <view class="imgPriceDiv">
+      <view catchtap='RouterCheck' data-item='{{item}}'>¥ {{item.resalePrice}}</view>
+      <view hidden="{{item.wishHide}}">
+        <image src="/images/index/love.png" wx:if="{{item.checkWish == false}}" class="love" catchtap='addWish' data-item='{{item}}' />
+        <image src="/images/index/addedWish.png" wx:else class="love" catchtap='addWish' data-item='{{item}}' />
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='loadmore' hidden='{{result.rowSize < 4}}'>
+  <view class="loading_box" hidden="{{loadMore}}">
+    <view class="loading_rotate_cube_parent">
+      <view class="loading_rotate_cube"></view>
+    </view>
+  </view>
+  <text hidden="{{!loadMore}}">没有更多数据了</text>
+</view>
+
+<!-- 筛选弹出层 -->
+<selectCommon id="selectCommon" selectData="{{proAllData}}" categoryId='{{categoryId}}' dataCate='DesignerPro' bind:returnData='_returnData'></selectCommon>
+
+<!-- 设计师弹出层 -->
+<view class="modal-box" hidden="{{designerFlag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalCC">
+        <view class="modalBoxTop">
+          <view class='search'>
+            <image class="search_icon search-img" src="/images/index/icon-sear.png"></image>
+            <input type="text" placeholder="搜索设计师" placeholder-class="placeholder" class='searchInput' />
+          </view>
+        </view>
+        <view class="modalBoxTwo">
+          <image src="/images/class/checkedTrue.png" class="search_icon" />
+          <view class="modalBoxThree">不限</view>
+          <view class="modalBoxFour">全部设计师作品</view>
+        </view>
+        <view class="designerListBigDiv" wx:for='{{designerList}}' wx:key="item.id">
+          <view class="designerListDivOne">
+            <view class="designerListDivOneImg"></view>
+          </view>
+          <view class="designerListDivTwo">
+            <view class="designerListDivTwoTxt">
+              <view class="designerName">{{item.name}}</view>
+              <view class="designerListDivTwoLine">
+                <view class="designerSex">{{item.sex}}</view>
+                <view class="designerCity">{{item.city}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="designerListDivThree">
+            <view class="designerListDivThreeTxt" bindtap="designerDetailShow" data-item='{{item}}'>>资料</view>
+          </view>
+        </view>
+      </view>
+      <view class="modalBoxBottom">
+        <view class="boxBottomLeft">全部重置</view>
+        <view class="boxBottomRight" bindtap="designerHide">搜索</view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="designerHide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+</view>
+
+<!-- 设计师详情弹出层 -->
+<view class="modal-box" hidden="{{designerDetailFlag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalCC">
+        <view class="modalBoxTop" bindtap="returnDesigner">
+          《 更多设计师
+        </view>
+        <view class="designerListBigDiv">
+          <view class="designerListDivOne">
+            <view class="designerListDivOneImg"></view>
+          </view>
+          <view class="designerListDivTwo">
+            <view class="designerListDivTwoTxt">
+              <view class="designerName">Christy Brinkley</view>
+              <view class="designerListDivTwoLine">
+                <view class="designerSex">女</view>
+                <view class="designerCity">意大利</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="designerTwoDiv">
+          <view class="designerField">
+            <view class="designerFieldPoint">
+              <image src="/images/index/proPoint.png" class="proPoint" />
+            </view>
+            <view class="designerFieldTxt">
+              设计领域
+            </view>
+          </view>
+          <view class="designerFieldTxtTwo">珠宝镶嵌／三维建模</view>
+        </view>
+        <view class="designerTwoDiv">
+          <view class="designerField">
+            <view class="designerFieldPoint">
+              <image src="/images/index/proPoint.png" class="proPoint" />
+            </view>
+            <view class="designerFieldTxt">
+              设计师理念
+            </view>
+          </view>
+          <view class="designerFieldTxtTwo">从Philippe Tournaire这里开始，珠宝打破传统，始创了成为建筑艺术品的历程无论是一对恋人梦想中的小屋，还是某一处值得怀念、铭记着盛大历史时刻的纪念，都被他用令人惊叹的微缩方式，表现在指尖的方寸之间。从Philippe Tournaire这里开始，珠宝打破传统，始创了成为建筑艺术品的历程无论是一对恋人梦想中的小屋，还是某一处值得怀念、铭记着盛大历史时刻的纪念，都被他用令人惊叹的微缩方式，表现在指尖的方寸之间。从Philippe Tournaire这里开始，珠宝打破传统，始创了成为建筑艺术品的历程无论是一对恋人梦想中的小屋，还是某一处值得怀念、铭记着盛大历史时刻的纪念，都被他用令人惊叹的微缩方式。</view>
+        </view>
+      </view>
+      <view class="modalBoxBottom">
+        <view class="boxBottomTwo" bindtap="designerDetailHide">搜索作品</view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="designerDetailHide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+
+</view>

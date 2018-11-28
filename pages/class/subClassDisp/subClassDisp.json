@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "selectCommon": "/pages/acommon/select/select"
+  },
+  "onReachBottomDistance": 300,
+  "navigationBarTitleText": ""
+}

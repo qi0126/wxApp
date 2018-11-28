@@ -1,0 +1,120 @@
+<view class='params'>
+  <view class='param'>
+    <view class='left'>
+      <view class='l-l'> 
+        钻石参数 
+        <image src='/images/class/icon-pickeright.png' mode='widthFix' style='width: 18rpx'></image>
+      </view> 
+      <view class='l-t'>diamond parameter</view>
+    </view>
+    <view class='right'> 
+      <view class='r-top'>
+        <text>克重</text> 
+        <text>颜色</text>
+        <text>净度</text>
+        <text>切工</text>
+      </view>
+      <view class='r-bottom'>
+        <!-- <text>0.7</text>
+        <text>G</text>
+        <text>VS1</text>
+        <text>EX</text> -->
+        <text>{{weightListStart[rotate1OffsetIndex]}}</text>
+        <text>{{colorListStart[rotate2OffsetIndex]}}</text>
+        <text>{{neatListStart[rotate3OffsetIndex]}}</text>
+        <text>{{cutListStart[rotate4OffsetIndex]}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='price'>
+    <view class='left'>
+      <view class='l-l'>
+        钻石参数
+        <image src='/images/class/icon-pickeright.png' mode='widthFix' style='width: 18rpx'></image>
+      </view>
+      <view class='l-t'>diamond parameter</view>
+    </view>
+    <view class='money' style='font-size:70rpx' wx:if="{{price}}" >¥ {{price || '0'}}</view>
+    <view class='money f28' wx:else>没有当前属性的钻石</view>
+  </view>
+</view>
+
+<view class='hr'>
+  <image src='/images/class/img-hr.png' mode='widthFix' style='width: 690rpx;'></image>
+</view>
+
+<view class='info'>
+  <view class='i-price'>
+    <view style='margin-bottom: 8rpx;'>实时更新国际行情价格，</view>
+    <view>专注 
+      <text>高品质</text>钻石服务</view>
+  </view>
+  <view class='realize' catchtap='go4C'>了解钻石4C?</view>
+</view>
+
+<!-- 旋转层 -->
+<view class='rotate'>
+  <view class='r-weight wrap' data-data='1' data-style='weight' data-offsetindex='{{rotate1OffsetIndex}}' style="transform: rotate({{rotate1}}deg); transition-duration: {{roTime}}s"  catchtouchstart='touchstart' catchtouchmove='touchmove'  catchtouchend='touchend'>
+    <view class='wul'>
+      <view class='li' wx:for="{{weightList}}" wx:key="index" style='transform: rotate({{item.rotate}}deg);'> <text>{{item.num}}</text> </view>
+    </view>
+  </view>
+  <view class='r-color wrap' data-data='2' data-style='color' style="transform: rotate({{rotate2}}deg); transition-duration: {{roTime}}s" data-offsetindex='{{rotate2OffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+    <view class='cul'>
+      <view class='li' wx:for="{{colorList}}" wx:key="index" style='transform: rotate({{item.rotate}}deg);'><text>{{item.num}}</text></view>
+    </view>
+  </view>
+  <view class='r-neatness wrap' data-data='3' data-style='neat' style="transform: rotate({{rotate3}}deg); transition-duration: {{roTime}}s" data-offsetindex='{{rotate3OffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+    <view class='nul'>
+      <view class='li' wx:for="{{neatList}}" wx:key="index" style='transform: rotate({{item.rotate}}deg);'><text>{{item.num}}</text></view>
+    </view>
+  </view>
+  <view class='r-cut wrap' data-data='4' data-style='cut' style="transform: rotate({{rotate4}}deg); transition-duration: {{roTime}}s" data-offsetindex='{{rotate4OffsetIndex}}' catchtouchstart='touchstart' catchtouchmove='touchmove' catchtouchend='touchend'>
+    <view class='tul'>
+      <view class='li' wx:for="{{cutList}}" wx:key="index" style='transform: rotate({{item.rotate}}deg);'><text>{{item.num}}</text></view>
+    </view>
+  </view>
+</view>
+
+<!-- 固定层 -->
+<view class='rotate inrotate'>
+  <view class='r-weight wrap' style='box-shadow: none'>
+    <view class='wul'>
+      <view class='li dial-wrap'>
+        <view class='d-dial'></view>
+        <view class='d-word'>克重</view>
+      </view>
+    </view>
+  </view>
+  <view class='r-color wrap' style='box-shadow: none'>
+    <view class='cul'>
+      <view class='li dial-wrap'>
+        <view class='d-dial'></view>
+        <view class='d-word'>颜色</view>
+      </view>
+    </view>
+  </view>
+  <view class='r-neatness wrap' style='box-shadow: none'>
+    <view class='nul'>
+      <view class='li dial-wrap'>
+        <view class='d-dial'></view>
+        <view class='d-word'>净度</view>
+      </view>
+    </view>
+  </view>
+  <view class='r-cut wrap' style='box-shadow: none'>
+    <view class='tul'>
+      <view class='li dial-wrap'>
+        <view class='d-dial'></view>
+        <view class='d-word'>切工</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class='inrotate' >
+  <view class='dial-wrap'>
+    <view class='d-dial'></view>
+    <view class='d-word'>克重</view>
+  </view>
+</view> -->

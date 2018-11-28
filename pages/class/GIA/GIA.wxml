@@ -1,0 +1,30 @@
+
+<view class='tit'>
+  <view class='sear'>
+    <image src='/images/class/icon-sear.png' mode='widthFix' style='width: 36rpx;'></image>
+    <text class='no'>输入证书号:</text>
+    <view class='info'> <text class='searInfo {{searInfo === "" ? "c9" : ""}}'>{{searInfo || 'GIA'}}</text> <view wx:if="{{searInfo}}" class='cursor blink'></view> </view>
+  </view>
+</view>
+ 
+<view class='keyboard'>
+  <view class='keywrap'>
+    <view style='border-radius: 30rpx 0 0 0' data-data='1' catchtap='click'>1</view>
+    <view data-data='2' catchtap='click'>2</view>
+    <view data-data='3' catchtap='click'>3</view>
+    <view style='border-radius: 0 30rpx 0 0; color: #DB5D5D' data-data='CE' catchtap='click'>CE</view>
+    <view data-data='4' catchtap='click'>4</view>
+    <view data-data='5' catchtap='click'>5</view>
+    <view data-data='6' catchtap='click'>6</view>
+    <view data-data='0' catchtap='click'>0</view>
+    <view style='border-radius: 0 0 0 30rpx' data-data='7' catchtap='click'>7</view>
+    <view data-data='8' catchtap='click'>8</view>
+    <view data-data='9' catchtap='click'>9</view>
+    <view style='border-radius: 0 0 30rpx 0' data-data='del' catchtap='click'>
+      <image src='/images/class/img-dele.png' mode='widthFix' style='width: 60rpx'></image>
+    </view>
+  </view>
+
+  <button class='btn btn-default query' catchtap='goQuery'>查询</button>
+  <view class='tag' catchtap='goSearchHistory' >查看历史搜索记录</view>
+</view>

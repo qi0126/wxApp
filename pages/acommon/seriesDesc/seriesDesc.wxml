@@ -1,0 +1,37 @@
+<!-- 设计师详情弹出层 -->
+<view class="modal-box" hidden="{{isShow}}"  bindtouchstart="touchstart" bindtouchmove="touchmove">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalCC">
+       <view class="modalBoxTop">系列描述</view>
+        <view class="designerListBigDiv">
+          <view class="designerListDivOne">
+            <view class="designerListDivOneImg"><image src='{{$img}}{{result.designerImag}}'></image></view>
+          </view>
+          <view class="designerListDivTwo">
+            <view class="designerListDivTwoTxt">
+              <view class="designerName">{{result.designerName}}</view>
+              <view class="designerListDivTwoLine">
+                <view class="designerSex">{{result.sex}}</view>
+                <view class="designerCity">{{result.countryName}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="designerTwoDiv" style='border: none'>
+          <view class="designerField">
+              <image src="/images/index/proPoint.png" mode='widthFix' style='width: 28rpx' />
+               <text>系列描述</text> 
+          </view>
+          <view class="designerFieldTxtTwo">{{series.seriecsDescription}}</view>
+        </view>
+      </view>
+      <view class="modalBoxBottom">
+        <view class="boxBottomTwo" bindtap="goDesDetail">搜索系列作品</view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="hide">
+    <image src='/images/class/returnWin.png' mode='widthFix' style='width: 36rpx' />
+  </view>
+</view>

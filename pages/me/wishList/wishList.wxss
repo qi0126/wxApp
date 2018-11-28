@@ -1,0 +1,154 @@
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tit {
+  box-sizing: border-box;
+  padding: 30rpx 30rpx;
+  height: 94rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tit-left {
+  display: flex;
+}
+
+.tit-right {
+
+}
+
+.tit .allcheckbox {
+  display: flex;
+  align-items: center
+}
+
+.tit .allcheckbox  image {
+  margin-right: 6rpx;
+}
+
+.tit .del {
+  margin-left: 56rpx;
+}
+
+.list {
+  flex: 1;
+  overflow: hidden;
+}
+
+.item {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  background: #fff;
+}
+
+
+.item .checkbox {
+  display: flex;
+  align-items: center;
+  width: 60rpx;
+  height: 60rpx;
+  /* padding-right: 40rpx;   */
+}
+
+.item .left {
+  margin-right: 50rpx;
+}
+
+/* 产品样式 */
+
+.t-right {
+  flex: 1;
+  height: 190rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.t-right .r-tit {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.t-right .r-exted {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.r-exted .re-left {
+  flex: 1;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.r-exted .re-right {
+  margin-left: 58rpx;
+}
+
+.t-right .r-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.r-price .rp-addshop {
+  font-size: 24rpx;
+  padding: 4rpx 10rpx;
+  color: #c09e57;
+  border: 1px solid #676767
+}
+
+.r-price .rp-addshop:active {
+  opacity: .7
+}
+
+
+.total {
+  padding-left: 40rpx;
+  flex: 1;
+  background: #474747;
+}
+
+.ttop {
+  padding-bottom: 4rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.ttop > text {
+  color: #c09e57;
+  font-size: 40rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tbottom {
+  font-size: 20rpx;
+  color: #cacaca;
+}
+
+.gopay {
+  width: 232rpx;
+  height: 100rpx;
+  color: #333;
+  background: #c09e57;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}

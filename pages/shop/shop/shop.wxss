@@ -1,0 +1,220 @@
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.tit {
+  box-sizing: border-box;
+  padding: 30rpx 34rpx;
+  height: 94rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tit-left {
+  display: flex;
+}
+
+.tit-right {
+
+}
+
+.tit .allcheckbox {
+  display: flex;
+  align-items: center
+}
+
+.tit .allcheckbox  image {
+  margin-right: 6rpx;
+}
+
+.tit .del {
+  margin-left: 56rpx;
+}
+
+.list {
+  flex: 1;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.item .checkbox {
+  display: flex;
+  align-items: center;
+  width: 60rpx;
+  height: 60rpx;
+  padding-right: 40rpx;  
+}
+
+.item .left {
+  margin-right: 50rpx;
+}
+
+/* 产品样式 */
+
+.t-right {
+  width: 320rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.t-right .r-tit {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 4rpx;
+}
+
+.t-right .r-exted {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.r-exted .re-left {
+  flex: 1;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.r-exted .re-right {
+  padding-left: 32rpx;
+}
+
+.t-right .r-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.bottom {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  /* position: fixed; *//* bottom: 0; */
+}
+
+.total {
+  padding-left: 40rpx;
+  flex: 1;
+  background: #474747;
+}
+
+.ttop {
+  padding-top: 2rpx;
+  padding-bottom: 4rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.ttop > text {
+  color: #c09e57;
+  font-size: 40rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tbottom {
+  font-size: 20rpx;
+  color: #cacaca;
+}
+
+.gopay {
+  width: 232rpx;
+  height: 100rpx;
+  color: #333;
+  background: #c09e57;
+}
+
+.nothing {
+  margin-bottom: 400rpx;
+}
+
+/* 店家加减 */
+.computBtn {
+  display: flex;
+  align-items: center;
+}
+
+.computBtn > view {
+  text-align: center
+}
+
+.computBtn .minus {
+  padding: 4rpx 10rpx;
+  border: 1px solid #979797;
+  min-width: 40rpx;
+  border-radius: 8rpx 0 0 8rpx
+}
+
+.computBtn .number {
+  margin: 0 4rpx;
+  padding: 4rpx 10rpx;
+  min-width: 40rpx;
+  border: 1px solid #979797;
+}
+
+.computBtn .add {
+  padding: 4rpx 10rpx;
+  min-width: 40rpx;
+  border: 1px solid #979797;
+  border-radius: 0 8rpx 8rpx 0;
+}
+
+.computBtn .minus:active, .computBtn .add:active {
+  color: #C1A15C;
+}
+
+.effective {
+  background: #f1f1f1
+}
+
+
+/*侧滑样式  */
+.touch-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  padding: 24rpx 34rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all .6s;
+  transform: translateX(140rpx);
+  margin-left: -140rpx;
+}
+
+.item-del {
+  background-color: #A71C20;
+  width: 140rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(140rpx); 
+  transition: all .6s
+}
+
+.touch-move-active .content, .touch-move-active .item-del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+} 

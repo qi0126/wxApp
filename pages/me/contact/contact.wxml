@@ -1,0 +1,12 @@
+<view class="contactBigDiv">
+  <view>
+    <image src="/images/me/contactService.png" class="contactService"/>
+  </view>
+  <view>
+    <image src="/images/me/contactLine.png" class="contactLine"/>
+  </view>
+  <view>
+    <image src="/images/me/contactCode.png" class="contactCode" bindtap='prewImg'/>
+  </view>
+  <view class="contactTxt">如您在购买、支付、或售后存在什么疑问， 您可关注平台二维码，客服将贴心为您服务！</view>
+</view>

@@ -1,0 +1,14 @@
+<view class='banner'>
+    <image mode='widthFix'></image>
+    <view>[实时更新国际行情价格，专注高品质钻石服务]</view>
+</view>
+
+<view class='list'>
+  <button class='btn btn-default diamond-btn' catchtap='goGIA'>GIA</button>
+  <view>GIA证书查询</view>
+</view>
+
+<view class='list'>
+  <button class='btn btn-default diamond-btn' catchtap='goDiamond'><image src='/images/class/icon-diamond.png' mode='widthFix' style='width:50rpx; height: 14rpx;'></image></button>
+  <view>钻石行情查询</view>
+</view>

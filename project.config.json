@@ -1,0 +1,41 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false
+	},
+	"compileType": "miniprogram",
+<<<<<<< HEAD
+	"libVersion": "2.2.2",
+=======
+	"libVersion": "2.3.2",
+>>>>>>> origin/master
+	"appid": "wx9761890aa01b6053",
+	"projectname": "ezjrt_wx",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

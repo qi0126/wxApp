@@ -1,0 +1,102 @@
+.diamond {
+  margin-right: 14rpx;
+}
+
+.diamondName {
+  color: #333;
+  font-size: 50rpx;
+}
+
+.diamondDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+  height: 110rpx;
+  float:right;
+}
+.searchDiv{
+  display:flex;
+  align-items: center;
+  padding-left: 20rpx;
+  width:560rpx;
+}
+
+.classImgBig {
+  transition: all .2s;
+  width: 750rpx;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.classImgSmall {
+  transition: all .2s;
+  width: 750rpx;
+  height: 200rpx;
+  overflow: hidden
+}
+
+.classImgDiv {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.imgNameBig {
+  position: absolute;
+  bottom: 22rpx;
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+.imgNameBig .imgEndName {
+  font-size: 36rpx;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  color: #fff;
+  line-height: 60rpx;
+  letter-spacing: 7rpx;
+  margin-left: 13rpx;
+}
+.imgNameSmall {
+  position: absolute;
+  bottom: 22rpx;
+  color: #fff;
+  font-size: 42rpx;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+.imgNameSmall .imgEndName {
+  font-size: 28rpx;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  color: #fff;
+  line-height: 60rpx;
+  letter-spacing: 7rpx;
+  margin-left: 13rpx;
+}
+
+
+.topMenuDiv {
+  display: flex;
+  height: 110rpx;
+  align-items: center;
+}
+image{
+  display:block;
+}
+
+.weui-input {
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.noclass {
+  display: flex;
+  justify-content: center;
+  margin-top: 80rpx;
+}

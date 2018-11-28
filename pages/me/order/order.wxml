@@ -1,0 +1,105 @@
+<scroll-view scroll-x>
+  <view class='tab'>
+    <view class='{{orderStatus === "" ? "active": ""}}' data-status='1' catchtap='changeStatusClick'>全部</view>
+    <view wx:for="{{statuList}}" wx:key="statu" class='{{orderStatus === item.statu ? "active": ""}}' data-status='{{item.statu}}' catchtap='changeStatusClick'>{{item.name}}</view>
+  </view>
+</scroll-view>
+
+<view wx:if='{{list.length !== 0}}' class='list'>
+  <view class='item' wx:for="{{list}}" wx:key='orderNo' data-item='{{item}}' catchtap='goOrderDetail'>
+    <view class='ttop'>
+      <view class='b-status'>
+        <view class='bs-dot'></view>
+        <text>{{item.currentHanleViewName}}</text>
+      </view>
+      <view class='tt-shopname'>{{item.provider}}</view>
+    </view>
+    <!-- 多个begin -->
+    <view class='top' wx:if='{{item.proList.length > 1}}'>
+      <scroll-view scroll-x='true'>
+        <view class='top-imgs'>
+          <view class='top-imgs-item' wx:for="{{item.proList}}" wx:for-item="it" wx:key="id">
+            <image mode='widthFix' src='{{$img}}{{it.picUrl}}' style='width: 220rpx'></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 多个end -->
+
+    <!-- 一个begin -->
+    <view class='top oneTop' wx:if='{{item.proList.length === 1}}'>
+      <view class='oneTop-img'>
+        <image src='{{$img}}{{item.proList[0].picUrl}}' mode='widthFix' style='width: 220rpx; height: 190rpx '></image>
+      </view>
+      <view class='t-right'>
+        <view class='r-tit'>{{item.proList[0].proName}}</view>
+        <view class='r-exted'>
+          <view class='re-left'>
+            <text wx:for="{{item.proList[0].specInfos}}" wx:key="specName" wx:for-item='it'> {{it.specName}}： <text></text>{{it.specValue}}</text>
+            <!-- <text> 材质： <text></text>pt950</text>
+            <text> 尺寸：<text></text>15</text> -->
+          </view>
+          <view class='re-right'>X{{item.proList[0].proNum}}</view>
+        </view>
+        <view class='r-price'>¥ {{item.orderPrice}}</view>
+      </view>
+    </view>
+    <!-- 一个end -->
+
+    <!-- 未付款 -->
+    <view class='bottom' wx:if='{{item.currentHandleCode === "UNPAID"}}'>
+      <view class='b-left'>
+        <text> 
+          <text wx:if='{{item.proList.length > 1}}' class='bl-total'>共{{item.proList.length}}件</text>
+        <text>需付金额：</text>
+        <text style='font-size: 32rpx;'>¥{{item.orderPrice}}</text>
+        </text>
+      </view>
+      <view class='b-btn'>
+        <view data-item='{{item}}' catchtap='goOrderDetail' wx:if="{{item.nextHandleCode === 'PAIDUP' && item.operator}}">{{item.nextHandleOperateName}}</view>
+      </view>
+    </view>
+
+    <!-- 已发货 -->
+    <view class='bottom' wx:elif='{{item.currentHandleCode === "DELIVERED"}}'>
+      <view class='b-left'>
+        <text> 
+          <text wx:if='{{item.proList.length > 1}}' class='bl-total'>共{{item.proList.length}}件</text>
+        <text>共计：</text>
+        <text style='font-size: 32rpx;'>¥{{item.orderPrice}}</text>
+        </text>
+      </view>
+      <view class='b-btn'>
+        <view data-item='{{item}}' catchtap='goOrderDetail' wx:if="{{item.nextHandleCode === 'OVER' && item.operator}}">{{item.nextHandleOperateName}}</view>
+      </view>
+    </view>
+
+    <!-- 其他状态 -->
+    <view class='bottom' wx:else>
+      <view></view>
+      <view class='b-left'>
+        <text> 
+          <text wx:if='{{item.proList.length > 1}}' class='bl-total'>共{{item.proList.length}}件</text>
+        <text>共计：</text>
+        <text style='font-size: 32rpx;'>¥{{item.orderPrice}}</text>
+        </text>
+      </view>
+    </view>
+    
+  </view>
+
+  <view class='loadmore' hidden='{{result.rowSize < 4}}'>
+    <view class="loading_box" hidden="{{loadMore}}">
+      <view class="loading_rotate_cube_parent">
+        <view class="loading_rotate_cube"></view>
+      </view>
+    </view>
+    <text hidden="{{!loadMore}}">没有更多数据了</text>
+  </view>
+
+</view>
+
+<view class='nothing' hidden='{{list.length !== 0}}'>
+  <image src='/images/noImg/img-noorder.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image>
+  <view>您还没有相关订单</view>
+</view>

@@ -1,0 +1,79 @@
+<view class='order-top'>
+  <view class='no'>
+    <view class='number'>订单号： {{result.orderNo}}</view>
+    <view class='s-status'>
+      <view class='dot'></view>
+      <view>待支付</view>
+    </view>
+  </view>
+  <view class='t-time c9'>下单时间：{{result.createTime}}</view>
+</view>
+
+<view class='addr-remark'>
+  <view class='ar-top'>
+    <view class='art-left'><image mode='widthFix' src='/images/product/Bitmap.png'  style='width: 68rpx'></image> </view>
+    <view class='art-right'>
+      <view class='artr-tit'><text class='artt-name' >{{result.consignee}}</text><text style='margin-right: 20rpx;'>{{result.concatInfo}}</text>
+        <!-- <view class='def-tag'>默认</view> -->
+      </view>
+      <view class='artr-addr'>{{result.address}}</view>
+    </view>
+  </view>
+  <view class='ar-mark'>
+    <view class='arm-left'>留言：</view>
+    <view class='arm-right'>{{result.mark}}</view>
+  </view>
+</view>
+
+<view class='info'>
+  <view class='item' wx:for="{{result.proList}}" wx:key="id" >
+    <view class='top oneTop'>
+      <view class='oneTop-img'>
+        <image mode='widthFix' src='{{$img}}{{item.picUrl}}' style='width: 220rpx; height: 190rpx '></image>
+      </view>
+
+      <view class='t-right'>
+        <view class='r-tit'>{{item.proName}}</view>
+        <view class='r-exted'>
+          <view class='re-left'>
+            <text wx:for="{{item.specInfos}}" wx:key="specName" wx:for-item='it'> {{it.specName}}： <text></text>{{it.specValue}}</text>
+          </view>
+          <view class='re-right'>X{{item.proNum}}</view>
+        </view>
+        <view class='r-price'>¥ {{item.subTotal}}</view>
+      </view>
+      
+    </view>
+  </view>
+  <view class="info-right">
+    <view class='infor-cont'>
+      <view class='ifc-o'> <text class='c9 f24'>商品金额：</text> <text class='c6 f32'>¥ {{result.orderPrice}}</text> </view>
+      <view class='ifc-t'> <text class='c9 f24'>运费：</text> <text class='c6 f26'>¥ {{result.freight}}</text> </view>
+      <view class='ifc-p'> <text class='c3 f28'>共计：</text> <text class='c0 f38'>¥ {{result.orderPrice}}</text> </view>
+    </view>
+  </view>
+</view>
+
+<view class='pay'>
+  <view>支付方式：在线支付</view>
+  <view wx:if='{{result.delivery === "SELF-PICKUP"}}'>配送方式：自取</view>
+  <view wx:if='{{result.delivery === "EXPRESS"}}'>配送方式：快递</view>
+  <view wx:if='{{result.delivery === "DELIVER"}}'>配送方式：送货上门</view>
+</view>
+
+<!-- 未付款  -->
+<view class='bottom' wx:if='{{result.currentHandleCode === "UNPAID"}}'>
+  <button wx:if="{{result.doCancel}}" class='btn btn-default cancalorder' catchtap='cancel'>取消订单</button>
+  <button wx:if="{{result.operator}}" class='btn btn-default gopay' catchtap='goPay'>去支付</button>
+</view>
+
+<!-- 已发货  -->
+<view class='bottom' wx:elif='{{result.currentHandleCode === "DELIVERED"}}'>
+  <!-- <button class='btn btn-default cancalorder' catchtap='cancel'>取消订单</button> -->
+  <button wx:if="{{result.operator}}" class='btn btn-default gopay' catchtap='hanldTrue'>确认收货</button>
+</view>
+
+<!-- 其他状态 -->
+<view class='bottom' wx:else>
+
+</view>

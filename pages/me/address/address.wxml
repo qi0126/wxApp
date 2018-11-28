@@ -1,0 +1,45 @@
+  
+<view class='list' wx:if="{{list.length > 0}}">
+    <view class='item ' wx:for="{{list}}" wx:key="id" data-item='{{item}}' data-index='{{index}}' catchtap='goOrder'>
+      <view class='info'>
+        <view class='tit'>
+          <text class='name'>{{item.receiver}}</text>
+          <text class='phone'>{{item.telephone}}</text>
+        </view>
+        <view class='addr'>{{item.province}} {{item.city}} {{item.district}} {{item.address}}</view>
+      </view>
+      <view class='handle'>
+        <view class='sure' data-item='{{item}}' data-index='{{index}}' bindtap='setDefault'>
+          <image src='{{item.isDefault === "N" ? imgStatus.a: imgStatus.b }}' mode='widthFix' style='width: 30rpx'></image>
+          <!-- <image mode='widthFix' src='' style='width: 20rpx; height: 20rpx'></image> -->
+          设为默认
+        </view>
+        <view class='h-hand'>
+          <image mode='widthFix' data-item='{{item}}' src='/images/me/icon-editaddr.png' style='width: 28rpx' catchtap='editAddress'></image>
+          <image mode='widthFix' src='/images/me/icon-deladdr.png' data-item='{{item}}' data-index='{{index}}' style='width: 28rpx' catchtap='deleAddress'></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='loadmore' hidden='{{result.rowSize < 4}}'>
+      <view class="loading_box" hidden="{{loadMore}}">
+        <view class="loading_rotate_cube_parent">
+          <view class="loading_rotate_cube"></view>
+        </view>
+      </view>
+      <text hidden="{{!loadMore}}">没有更多数据了</text>
+    </view>
+
+  </view>
+
+  <view class='nothing' wx:else>
+    <image src='/images/noImg/img-noaddr.png' mode='widthFix' style='width: 125rpx'></image>
+    <view>您还没有收获地址</view>
+  </view>
+
+  <view class='bottom'>
+    <button class='btn btn-default' bindtap='goAddress'>
+      +
+      <text style='margin-left: 10rpx;'>创建地址</text>
+    </button>
+  </view>

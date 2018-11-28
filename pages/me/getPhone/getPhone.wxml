@@ -1,0 +1,20 @@
+<view class='info'>
+  <view class='i-col'>
+    <view class='ic-left'><input placeholder='请填写您的联系方式' bindinput='getPhoneValue'  ></input></view>
+    <view class='ic-right c00'>
+     <button class='btn icrb {{disabled && "disabled"}}' bindtap='getVerificationCode' disabled='{{disabled}}' >{{codename}}</button>
+    </view>
+  </view>
+
+  <view class='i-col'>
+    <view class='ic-left'><input placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}'  ></input></view>
+    <view class='ic-right'>
+      <!-- <button class='btn icrb {{disabledCode && "disabled"}}'>确定</button>  -->
+    </view>
+  </view>
+
+</view>
+
+
+<button catchtap='save' disabled='{{disabledCode}}' style='{{disabledCode && "background: #e6e6e6; color: #999" }}' class='btn btn-default'>保存</button>
+<!-- style='background: #ddd; color: #fff'  -->

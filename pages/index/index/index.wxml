@@ -1,0 +1,69 @@
+<view>
+  <view class='search'>
+      <view class='search-box'  bindtap='searchFun'>
+        <image class="search-img" src="/images/index/icon-sear.png"></image>
+        <view class='searchInput'>搜索你的闪耀配饰</view>
+      </view>
+  </view>
+ 
+  <view class='bgWrap'>
+    <view class='bgImg'>
+        <image wx:if="{{shopInfo.banner}}" src='{{$img}}{{shopInfo.banner}}' mode='widthFix'  ></image>
+        <image wx:else src='/images/index/img-bg1.jpg' mode='widthFix' ></image>
+    </view>
+    <view class='textCenter'>
+      <image class='imgFilter' src="/images/index/img-bg.png"></image>
+      <!-- <image class='imgFilter' style='width: 100%; height: ' src="/images/index/img-bg.png"></image> -->
+      <view class='centerWrap'>
+        <view class='storeName'>{{shopInfo.nickName}}</view>
+        <view class='shopText'> {{shopInfo.advertise}}</view>
+        <view class='shop' bindtap='shopDes'> 与您一起了解店铺
+          <image src='/images/index/Group Copy 2.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 店 -->
+  <view class='shopIntro' wx:if="{{shopName}}">
+    <view class='shopTitle'>
+      <view class='smallSpot'></view>
+      <view class='shopName'>
+        {{shopInfo.nickName}}
+      </view>
+    </view>
+
+    <view class='shopDesWrap'>
+      <view class="shopDes">
+        <view>{{shopInfo.introduce}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 产品 -->
+  <view class='product'>
+    <view class='productTitle'>甄选·引荐</view>
+
+    <view class='productTitlebar'>
+      <image src='/images/index/choose.png'></image>
+    </view>
+
+    <!-- item -->
+    <view class='productItem' wx:for="{{list}}" wx:key="id" wx:if="{{list.length > 0}}">
+      <view class='pritm-img'>
+        <image src='{{$img}}{{item.productImageUrl}}'></image>
+      </view>
+      <view class='productTip'>{{item.productName}}</view>
+      <view class='Price'>{{item.textureNumber}}</view>
+      <view class='buybtn' data-item='{{item}}' bindtap="goProductDetail">
+        > Buy Now
+      </view>
+    </view>
+    
+    <view class='noproduct' wx:if="{{list.length === 0}}">
+      <!-- 暂无甄选 -->
+    </view>
+
+  </view>
+
+  <!-- 登陆弹窗 -->
+  <login id="showLogin"></login>
+</view>

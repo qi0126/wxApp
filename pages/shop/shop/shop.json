@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购物车",
+  "onReachBottomDistance": 300,
+  "usingComponents": {
+    "login": "/pages/acommon/login/login"
+  }
+}

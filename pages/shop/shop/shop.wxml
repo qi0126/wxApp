@@ -1,0 +1,98 @@
+<view class="tit">
+  <view class='tit-left' wx:if="{{list.length !== 0}}">
+    <view class='allcheckbox' catchtap='checkboxAll'>
+      <image mode='widthFix' src="{{checkboxAll ? imgStatus.a : imgStatus.b}}" style="width: 20rpx; height: 20rpx"></image> 
+      <text>全选</text>
+    </view>
+    <view class='del' catchtap='defDel'>移除</view>
+  </view>
+  <view class='tit-right'>
+    <!-- <image mode='widthFix' src='/images/me/img-shop.png' style='width:43rpx; height: 47rpx;'></image> -->
+  </view>
+</view>
+
+<view class='list' wx:if="{{list.length !== 0}}">
+  <scroll-view scroll-y style='height: 100%'>
+
+    <!-- 列表 -->
+    <view class='item {{item.isEffective !== "Y" && "effective"}}  touch-item {{item.isTouchMove ? "touch-move-active" : ""}}' data-item='{{item}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key="index"
+      hidden='{{item.hide}}'>
+
+      <view class='content'>
+        <view class='checkbox ' data-index='{{index}}' catchtap='checkbox'>
+          <image mode='widthFix' wx:if="{{item.isEffective === 'Y'}}" src="{{item.checkbox ? imgStatus.a : imgStatus.b}}" style="width: 20rpx; height: 20rpx"></image>
+        </view>
+
+
+        <!-- 图片 -->
+        <view class='left' data-item='{{item}}' catchtap='goShopDetail'>
+          <image  src="{{$img}}{{item.picUrl}}" style="width: 220rpx; height: 220rpx;"></image>
+        </view>
+
+        <view class='t-right'>
+          <view class='r-tit'>{{item.proName}}</view>
+          <view class='r-exted'>
+            <view class='re-left'>
+              <text> 材质： <text>{{item.textureName}}</text></text>
+              <text wx:if="{{item.designName}}"> 尺寸：<text>{{item.designName}}</text></text>
+              <!-- <text> 男士尺寸：<text>100</text></text>
+              <text> 女士尺寸：<text>84</text></text> -->
+            </view>
+            <view class='re-right'>X{{item.num}}</view>
+          </view>
+
+          <!-- 价格 -->
+          <view class='r-price' wx:if="{{item.isEffective === 'Y'}}">
+            <text>¥ {{item.price}}</text>
+            <!-- <image src='/images/shop/icon-edit.png' data-item='{{item}}' mode='widthFix' style='width: 30rpx' catchtap='goShopCart'></image> -->
+            <view class='computBtn'>
+              <view class='minus' data-item='{{item}}' data-index='{{index}}' catchtap='decrease'>-</view>
+              <view class='number'>{{item.num}}</view>
+              <view class='add' data-item='{{item}}' data-index='{{index}}' catchtap='increase'>+</view>
+            </view>
+          </view>
+          <view wx:else class='c9'>产品属性已更改</view>
+
+        </view>
+
+      </view>
+      <view class='item-del' data-item='{{item}}' data-index='{{index}}' catchtap='deleDefOne'>
+        <image src='/images/shop/icon-del.png' mode='widthFix' style='width: 36rpx'></image>
+      </view>
+
+
+    </view>
+
+    <!-- 上拉加载 -->
+    <view class='loadmore' hidden='{{result.rowSize < 4}}'>
+      <view class="loading_box" hidden="{{loadMore}}">
+        <view class="loading_rotate_cube_parent">
+          <view class="loading_rotate_cube"></view>
+        </view>
+      </view>
+      <text hidden="{{!loadMore}}">没有更多数据了</text>
+    </view>
+
+  </scroll-view>
+</view>
+
+<view class='nothing' hidden='{{list.length !== 0}}'>
+  <image src='/images/noImg/img-noShop.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image>
+  <view>购物车为空</view>
+</view>
+
+<view class='bottom' wx:if="{{checkboxList.length > 0}}">
+  <view class='total'>
+    <view class='ttop'>共计：
+      <text>¥ {{allPrice}}</text> </view>
+    <view class='tbottom'>共{{allNum}}件商品</view>
+  </view>
+  <button class='btn btn-default gopay' bindtap='goPay'>去支付</button>
+</view>
+
+<view class='footer' hidden='{{!propShow}}'>
+  <button class='btn btn-default' bindtap='handleTrue'>确定</button>
+</view>
+
+<!-- 登陆弹窗 -->
+<login id="showLogin" bind:loginTrue="loginTrue"></login>

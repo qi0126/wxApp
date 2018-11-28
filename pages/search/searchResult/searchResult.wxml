@@ -1,0 +1,50 @@
+<view class="topMenuOne" style="flex-direction:row;">
+  <view class="topOneLeft" bindtap="designerShow">
+    <image src="/images/index/proPoint.png" class="proPoint" /> 总共{{proList.length}}件产品
+  </view>
+  <view class="topOneRigth">
+    <span class="topRigthBtn">
+      <button class="btn btn-default selectBtnOne" bindtap="show">筛选</button>
+    </span>
+    <span class="topRigthImg">
+      <image src="/images/me/img-shop.png" class="icon-shop" bindtap='goShop' />
+    </span>
+  </view>
+</view>
+<view class="flex-wrp">
+  <view class="flex-item imDispBigDiv" wx:for="{{proList}}" wx:key="{{item.id}}" data-item='{{item}}'  >
+    <view catchtap='RouterCheck' class='imgDispTop' data-item='{{item}}' >
+      <image src="{{$img}}/{{item.productImageUrl}}"  class="imgDisp" mode='widthFix'/>
+    </view>
+    <view class="imgNameTop" catchtap='RouterCheck' data-item='{{item}}' >{{item.productName}}</view>
+    <view class="imgPriceDiv">
+      <span catchtap='RouterCheck' data-item='{{item}}' ></span>
+      ¥ {{item.resalePrice}}
+      <span> 
+        <!-- {{item.checkWish}} -->
+          <image src="/images/index/love.png" wx:if="{{!item.checkWish}}" class="love"  catchtap='addWish' data-item='{{item}}'/>
+          <image src="/images/index/addedWish.png" wx:else class="love"  catchtap='addWish' data-item='{{item}}'/>
+      </span>
+    </view>
+  </view>
+
+      <!-- 上拉加载 -->
+    <view class='loadmore' hidden='{{result.rowSize < 4}}'>
+      <view class="loading_box" hidden="{{loadMore}}">
+        <view class="loading_rotate_cube_parent">
+          <view class="loading_rotate_cube"></view>
+        </view>
+      </view>
+      <text hidden="{{!loadMore}}">没有更多数据了</text>
+    </view>
+</view>
+
+<view class='nothing' hidden='{{proList.length !== 0}}'>
+  <image src='/images/noImg/img-noShop.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image>
+  <view>购物车为空</view>
+</view>
+
+  <!-- 筛选弹出层 -->
+<selectCommon id="selectCommon" selectData="{{proAllData}}" categoryId='{{categoryId}}' dataCate='DesignerPro' bind:returnData='_returnData'></selectCommon>
+
+

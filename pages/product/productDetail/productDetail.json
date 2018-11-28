@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "产品详情",
+  "usingComponents": {
+    "addSize": "/pages/acommon/addSize/addSize",
+    "login": "/pages/acommon/login/login",
+    "slideLayer": "/pages/acommon/slideLayer/slideLayer",
+    "seriesDesc": "/pages/acommon/seriesDesc/seriesDesc"
+  }
+}

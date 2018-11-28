@@ -1,0 +1,32 @@
+<view class="page-body">
+  <view class="page-section">
+    <view class="page-section-spacing">
+      <view class="topMenuDiv">
+        <view class="searchDiv">
+          <image src="/images/index/icon-sear.png" class="search_icon" />
+          <input class="weui-input" name="input" placeholder="搜索你的闪耀配饰" disabled bindtap='searchFun' />
+        </view>
+        <view class="diamondDiv">
+          <image class="diamond" src="/images/index/d.png" />
+          <span catchtap="goQuery">钻石查询</span>
+        </view>
+      </view>
+
+      <view class="classImgDiv" wx:if="{{imgDispNewList.length > 0}}" wx:for="{{imgDispNewList}}" wx:key="{{item.id}}" catchtap='ImgCheckbox' data-item='{{item}}'>
+        <view class='{{item.checked ? "classImgBig":"classImgSmall"}}'>
+          <image src='{{item.imgBig}}' mode='widthFix' style='width: 750rpx' />
+        </view>
+        <!-- catchtap='RouterCheck' -->
+        <view class='{{item.checked ? "imgNameBig":"imgNameSmall"}}' data-item='{{item}}'>#{{item.categoryName}}
+          <span class="imgEndName">{{item.endValue}}</span>
+        </view>
+      </view>
+
+      <view class='nothing' hidden='{{imgDispNewList.length !== 0}}'>
+        <image src='/images/noImg/img-noclass.png' mode='widthFix' style='width: 170rpx; margin-top: 240rpx; margin-bottom: 60rpx'></image>
+        <view>暂无分类哦！</view>
+      </view>
+
+    </view>
+  </view>
+</view>

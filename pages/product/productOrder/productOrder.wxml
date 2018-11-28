@@ -1,0 +1,120 @@
+<view>
+  <view class='orderTitle'>商品与配送</view>
+  <!-- 地址 -->
+  <view class='orderAddress'>
+    <view class='selectAdd'>
+      <!-- <view class='collect' bindtap='selectCollect'> -->
+      <view class='collect'>
+        <image src="{{deliWay ? imgStatus.a : imgStatus.b}}" class="search_icon" ></image>收货地址
+      </view>
+      <!-- <view class='take' bindtap='selectTake'> -->
+      <view class='take'>
+        <image src="{{!deliWay ? imgStatus.a : imgStatus.b}}" class="search_icon" ></image>门店自提
+      </view>
+      <view class='noSupport'>暂不支持</view>
+    </view>
+    <!-- 地址信息 -->
+    <view class='contactAddr' wx:if="{{addr.consignee}}" catchtap='changeAddr'>
+      <view class='contacts' >
+        <view class='name'>{{addr.consignee}}</view>
+        <view class='tel'>{{addr.concatInfo}}</view>
+        <view class='default' wx:if="{{addr.isDefault === 'Y'}}">默认</view>
+      </view>
+      <view class='addrDetail'>
+        {{addr.address}}
+      </view>
+      <image src='/images/product/Bitmap.png' class='loactionIcon' mode='widthFix' style='width: 64rpx'></image>
+      <image src='/images/product/rightArrow.png' class='arrowIcon'></image>
+    </view>
+
+    <!-- 没有地址信息 -->
+    <view class='noddr' wx:else >
+        <view class='nd-top'> <image src='/images/class/icon-noaddr.png' mode='widthFix' style='width: 54rpx;' ></image>  您还没有添加收货地址哦！</view>
+        <view catchtap='changeAddr'> <button class='btn btn-default noaddr-btn'>选择地址</button> </view>
+    </view>
+    
+  </view>
+  <!--订单详情  -->
+  <view class='orderDetail'>
+    <!-- 头 -->
+    <view class='header' wx:for="{{proList}}" wx:key="proId">
+      <view class='picDes'>
+        <image class='productPic' src="{{$img}}{{item.picUrl}}"></image>
+      </view>
+      <view class='productDes'>
+        <view class='detailDes'>{{item.proName}}</view>
+        <view class='format'>
+          <view>材质：{{item.specInfo[0].specValue}}</view>
+          <view class='size'>尺寸：{{item.specInfo[1].specValue}}</view>
+        </view>
+        <view class='number'>
+          <view class='price'>¥ {{item.price}}</view>
+          <view class='btnStyle' wx:if='{{way === "detail"}}'>
+            <view class='minu' data-index='{{index}}' catchtap='decrease'>-</view>
+            <view class='value'>{{item.num}}</view>
+            <view class='add' data-index='{{index}}' catchtap='increase'>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 中 -->
+    <view class='middle'>
+      共1件商品
+    </view>
+    <!-- 底 -->
+    <view class='footer'>
+      <view class='noteTile'>留言笔记：</view>
+      <view>
+        <textarea bindinput='changeText' value='{{word}}' placeholder='请输入留言笔记' ></textarea>
+        <view class='footerDes'>（{{word.length}}/45）</view>
+      </view>
+    </view> 
+  </view>
+  <!-- 支付信息 -->
+  <view class='payTitle'> 支付信息 </view>
+  <view class='pay'>
+    <view class='supportWrap'>
+      <view class='support'>请选择在线支付方式</view>
+      <view class='noSupport'>暂不支持货到付款方式</view>
+    </view>
+    <!-- 微信确认 -->
+    <view class='wxConfirm'>
+      <image class='logo' src="/images/product/wx.png"></image>
+      <view class='wxDes'>
+        <view class='first'>微信支付</view>
+        <view class='second'>微信安全支付</view>
+      </view>
+      <view class='circle'>
+        <image src='/images/product/Bitmap1.png' mode='widthFix' style='width: 40rpx' wx:if="{{wxChecked}}"></image>
+      </view>
+    </view>
+    <!-- 金额 -->
+    <view class='money'>
+      <view class='centent'>
+        <view class='ul'>
+          <view class='title'>商品金额：</view>
+          <view class='text'>¥ {{totalPrice}}</view>
+        </view>
+        <view class='ul'>
+          <view class='title'>运费：</view>
+          <view class='text'>¥ 0.00</view>
+        </view>
+        <view class='ul'>
+          <view class='total'>共计：</view>
+          <view class='totalMoney'>¥ {{totalPrice}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='foot'>
+    <view class='left'>
+      <view class='computWrap'>
+        <view class='comput'>共计：</view>
+        <view class='computMoney'>¥ {{totalPrice}}</view>
+      </view>
+      <view class='Number'>共{{totalNum}}件商品</view>
+    </view>
+    <button class='btn btn-default right' bindtap='goPay'>支付</button>
+  </view>
+</view>

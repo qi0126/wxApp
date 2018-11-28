@@ -1,0 +1,146 @@
+<view class="tit">GIA 钻石资料</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>GIA 证书编号</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.code}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>证书颁发日期</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.dateAddress}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>测量尺寸</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.size}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>钻石形状</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.shape}}</view>
+  </view>
+</view>
+
+<view class="tit">钻石4C参数</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>重量</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.carat}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>颜色</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.color}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>净度</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.clarity}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>切工</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.cut}}</view>
+  </view>
+</view>
+
+<view class="tit">切工及荧光</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>抛光</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.polish}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>对称</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.symmetry}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>荧光</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.fluor}}</view>
+  </view>
+</view>
+
+<view class="tit">比例</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>全深比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.depth}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>台宽比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.tablePer}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>冠角</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.cut}}</view>
+  </view>
+  <view class='item'>
+    <view class='left'>冠高比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.crownHeight}}</view>
+  </view>
+    <view class='item'>
+    <view class='left'>亭角</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.pavilionAngle}}</view>
+  </view>
+    <view class='item'>
+    <view class='left'>亭深比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.pavilionDepth}}</view>
+  </view>
+    <view class='item'>
+    <view class='left'>星小面比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.starLength}}</view>
+  </view>
+    <view class='item'>
+    <view class='left'>下腰小面比</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.lowerHalf}}</view>
+  </view>
+    <view class='item'>
+    <view class='left'>腰棱</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.girdle}}</view>
+  </view>
+      <view class='item'>
+    <view class='left'>底尖</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.pavilionAngle}}</view>
+  </view>bottomTip
+</view>
+
+<!-- <view class="tit">净度特征</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>净度特征</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.code}}</view>
+  </view>
+</view> -->
+
+<view class="tit">腰码</view>
+<view class='info'>
+  <view class='item'>
+    <view class='left'>腰码</view>
+    <view class='dashed'></view>
+    <view class='right'>{{result.waistCode}}</view>
+  </view>
+</view>
+
+
+<view class='bottom'>
+  <view>
+    <image src='/images/class/img-gia.png' mode='widthFix' style='width: 64rpx'></image>
+    <text>GIA钻石信息查询</text>
+  </view>
+</view> 

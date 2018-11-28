@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "EZJEWELRY",
+  "usingComponents": {
+    "login": "/pages/acommon/login/login"
+  }
+}

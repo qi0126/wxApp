@@ -1,0 +1,13 @@
+ <view class="fenxiang-box">
+  <button class='btn btn-default btn-small' bindtap="show">
+      <text>添加账户</text>
+    </button>
+  </view>
+
+<view class="modal-box" hidden="{{flag}}" bindtap="hide">
+    <view class="modal-body">
+      <view class="modal-content">
+        <button class="knowBtn" bindtap="hide">我知道了</button>
+      </view>
+    </view>
+  </view>

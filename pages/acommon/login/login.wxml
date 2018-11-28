@@ -1,0 +1,12 @@
+<view class='layer' hidden='{{show}}'>
+  <view class='layer-con'>
+    <view class='tit'>
+      EZJEWELRY
+    </view>
+    <view class='info'>EZJEWELRY 申请获取授权, 用于会员服务</view>
+    <view class='bottom'>
+      <button class='btn btn-radius' open-type="getUserInfo" bindgetuserinfo="comfirmTrue" > <image src='/images/index/icon-backlogin.png' mode='widthFix' style='width: 20rpx;' ></image> 同意 </button>
+    </view>
+  </view>
+  <view class='falseImg' catchtap='hide'><image src='/images/index/icon-falselogin.png' mode='widthFix' style='width: 60rpx;' ></image> </view>
+</view>

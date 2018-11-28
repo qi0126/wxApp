@@ -1,0 +1,111 @@
+@import "../../../utils/wxParse/wxParse.wxss";
+
+.tit {
+  padding-left: 32rpx;
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  color: #fff;
+  background: #b89855;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  height: 262rpx;
+  background: #fff;
+}
+
+.bottom > view {
+  margin-top: 138rpx;
+  display: inline-flex;
+  align-items: center;
+  color: #999;
+  font-size: 20rpx;
+}
+
+.bottom > view image {
+  margin-right: 20rpx;
+}
+
+.info {
+  /* padding: 45rpx 80rpx 30rpx 80rpx; */
+  /* background:#ddd; */
+  
+  padding: 45rpx 40rpx 30rpx 40rpx;
+  
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.left {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.dashed {
+  position: relative;
+  top: 18rpx;
+  flex: 1;
+  margin: 0 40rpx;
+  /* 虚线间隔 */
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(to right, #777 0%, #777 50%, transparent 50%);
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+}
+
+.right {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* wxparse */
+.wxParse-h1 {
+  display: none
+}
+
+.report_summary {
+  display: none
+}
+
+.wxParse-inline.hca {
+  display: none
+}
+
+.report_price {
+  display: none
+}
+
+.cert_comment_out {
+  display: none
+}
+
+.wxParse-a {
+  display: none
+}
+
+.report_details {
+  margin-bottom: 40rpx;
+}
+
+.wxParse-table {
+	border-bottom:1px solid #e0e0e0;
+}
+
+.wxParse-tr{
+	display: flex;
+	border-right:1px solid #e0e0e0;
+	border-top:1px solid #e0e0e0;
+  border-bottom: none
+}
+
+.wxParse-p {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}

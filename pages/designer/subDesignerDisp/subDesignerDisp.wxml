@@ -1,0 +1,231 @@
+<view class="topMenuOne" style="flex-direction:row;">
+  <view class="topOneLeft" bindtap="designerShow">
+    <image src="/images/index/proPoint.png" class="proPoint" /> 设计师
+    <span class="leftPonitTwo">
+      <image src="/images/index/icon-back.png" mode='widthFix' class="icon-back" />
+    </span>
+    <span class="leftTxtThree">
+      <text wx:if="{{desInfo.designerName}}" >{{desInfo.designerName}}</text>
+      <text wx:else>全部</text>
+    </span>
+  </view> 
+  <view class="topOneRigth">
+    <span class="topRigthBtn">
+      <button class="btn btn-default selectBtnOne" bindtap="show">筛选</button>
+    </span>
+    <span class="topRigthImg">
+      <image src="/images/me/img-shop.png" bindtap='goShop' class="icon-shop" />
+    </span>
+  </view>
+</view>
+
+<view class="flex-wrp">
+  <view wx:if="{{proList.length === 0}}" class="noProDiv">
+    <image src="/images/noImg/img-nopro.png" class="noPro" mode='widthFix' />
+    <view class='noProText'>暂无您要的产品哦！</view>
+  </view>
+
+  <view class="flex-item imDispBigDiv" wx:for="{{proList}}" wx:key="{{item.id}}" data-item='{{item}}'>
+    <view catchtap='RouterCheck' class='imgDispTop' data-item='{{item}}'>
+      <image src="{{$img}}{{item.productImageUrl}}" class="imgDisp" mode='widthFix' style='width:340rpx;' />
+    </view>
+    <view class="imgNameTop" catchtap='RouterCheck' data-item='{{item}}'>{{item.productName}}</view>
+    <view class="imgPriceDiv">
+<<<<<<< HEAD
+      <span catchtap='RouterCheck' data-item='{{item}}' >¥ {{item.resalePrice}}</span>
+      <image src="/images/index/love.png" wx:if="{{item.checkWish == false}}" class="love"  catchtap='addWish' data-item='{{item}}'/>
+      <image src="/images/index/addedWish.png" wx:else class="love"  catchtap='addWish' data-item='{{item}}'/>
+=======
+      <view catchtap='RouterCheck' data-item='{{item}}'>¥ {{item.resalePrice}}</view>
+      <view hidden="{{item.wishHide}}">
+        <image src="/images/index/love.png" wx:if="{{item.checkWish == false}}" class="love" catchtap='addWish' data-item='{{item}}' />
+        <image src="/images/index/addedWish.png" wx:else class="love" catchtap='addWish' data-item='{{item}}' />
+      </view>
+>>>>>>> origin/master
+    </view>
+  </view>
+</view>
+
+<view class='loadmore' hidden='{{result.rowSize < 4}}'>
+  <view class="loading_box" hidden="{{loadMore}}">
+    <view class="loading_rotate_cube_parent">
+      <view class="loading_rotate_cube"></view>
+    </view>
+  </view>
+  <text hidden="{{!loadMore}}">没有更多数据了</text>
+</view>
+
+<!-- 筛选弹出层 -->
+<selectCommon id="selectCommon" selectData="{{proAllData}}" categoryId='{{categoryId}}' dataCate='DesignerPro' bind:returnData='_returnData'></selectCommon>
+
+<!-- 
+<view class="modal-box" hidden="{{flag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalBoxTop">筛选</view>
+      <view class="modalBoxCC">
+        <view class="selectedSubDiv">
+          <view class="subDivOne">
+            <view class="subDivName">适合人群</view>
+            <view class="subDivFlex">
+              <view class="checkboxListDiv" wx:for="{{manList}}" wx:key="id">
+                <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='ManCheckbox' /> {{item.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="selectedSubDiv">
+          <view class="subDivOne">
+            <view class="subDivName">系列</view>
+            <view class="subDivFlex"> 
+              <view class="checkboxListDiv" wx:for="{{seriesList}}" wx:key="id">
+                <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='ManCheckbox' /> {{item.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="selectedSubDiv">
+          <view class="subDivOne">
+            <view class="subDivName">分类</view>
+            <view class="subDivFlex">
+              <view class="checkboxListDiv" wx:for="{{classList}}" wx:key="id">
+                <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='ManCheckbox' /> {{item.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="selectedSubDiv">
+          <view class="subDivOne">
+            <view class="subDivName">价格</view>
+            <view class="subDivFlex">
+              <view class="checkboxListDiv" wx:for="{{priceList}}" wx:key="id">
+                <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='PriceCheckbox' /> {{item.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="selectedSubDiv">
+          <view class="subDivOne">
+            <view class="subDivName">材质</view>
+            <view class="subDivFlex">
+              <view class="checkboxListDiv" wx:for="{{materList}}" wx:key="id">
+                <image src='{{item.checked==true ? imgStatus.a : imgStatus.b}}' class="checkedTrue" data-item='{{item}}' catchtap='MaterCheckbox' /> {{item.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="modalBoxBottom">
+        <view class="boxBottomLeft">全部重置</view>
+        <view class="boxBottomRight" bindtap="hide">搜索</view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="hide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+</view> -->
+
+
+<!-- 设计师弹出层 -->
+<view class="modal-box" hidden="{{designerFlag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalCC">
+        <view class="modalBoxTop">
+          <view class='search'>
+            <image class="search_icon search-img" src="/images/index/icon-sear.png"></image>
+            <input type="text" placeholder="搜索设计师" placeholder-class="placeholder" class='searchInput' bindinput='searchInput' />
+          </view>
+        </view>
+        <view class="modalBoxTwo {{!desInfo.designerName && 'desOn'}}" catchtap='allDesSear'>
+          <image src="{{desInfo.designerName ? imagesSele.F : imagesSele.T}}" class="search_icon" />
+          <view class="modalBoxThree">全部设计师</view>
+          <!-- <view class="modalBoxFour">全部设计师作品</view> -->
+        </view>
+        <view class="designerListBigDiv {{item.designerName === desInfo.designerName && 'desOn'}}" wx:for='{{designerList}}' wx:key="id" data-item='{{item}}' catchtap='designerListSear'>
+          <view class="designerListDivOne">
+            <view class="designerListDivOneImg">
+              <image src='{{$img}}{{item.designerImag}}' mode='widthFix' style='width: 100%'></image>
+            </view>
+          </view>
+          <view class="designerListDivTwo">
+            <view class="designerListDivTwoTxt">
+              <view class="designerName">{{item.designerName}}</view>
+              <view class="designerListDivTwoLine">
+                <view class="designerSex">{{item.sex}}</view>
+                <view class="designerCity">{{item.countryName}}设计师</view>
+              </view>
+            </view>
+          </view>
+          <view class="designerListDivThree">
+            <view class="designerListDivThreeTxt" catchtap="designerDetailShow" data-item='{{item}}'>>资料</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="designerHide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+</view>
+
+<!-- 设计师详情弹出层 -->
+
+<view class="modal-box" hidden="{{designerDetailFlag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <view class="modalCC">
+        <view class="modalBoxTop" bindtap="returnDesigner">
+          <image src='/images/product/rightArrow.png' mode='widthFix' style='width: 16rpx; margin-right: 16rpx; '></image>
+           更多设计师
+        </view>
+        <view class="designerListBigDiv">
+          <view class="designerListDivOne">
+            <view class="designerListDivOneImg">
+              <image src='{{$img}}{{desInfo.designerImag}}' mode='widthFix' style='width: 100%'></image>
+            </view>
+          </view>
+          <view class="designerListDivTwo">
+            <view class="designerListDivTwoTxt">
+              <view class="designerName">{{desInfo.designerName}}</view>
+              <view class="designerListDivTwoLine">
+                <view class="designerSex">{{desInfo.sex}}</view>
+                <view class="designerCity">{{desInfo.countryName}}设计师</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="designerTwoDiv">
+          <view class="designerField">
+            <view class="designerFieldPoint">
+              <image src="/images/index/proPoint.png" class="proPoint" />
+            </view>
+            <view class="designerFieldTxt">
+              设计领域
+            </view>
+          </view>
+          <view class="designerFieldTxtTwo">{{desInfo.fields}}</view>
+        </view>
+        <view class="designerTwoDiv">
+          <view class="designerField">
+            <view class="designerFieldPoint">
+              <image src="/images/index/proPoint.png" class="proPoint" />
+            </view>
+            <view class="designerFieldTxt">
+              设计师理念
+            </view>
+          </view>
+          <view class="designerFieldTxtTwo">{{desInfo.designerIdem}}</view>
+        </view>
+      </view>
+      <view class="modalBoxBottom">
+        <view class="boxBottomTwo" bindtap="designerSear">搜索作品</view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-right" bindtap="designerDetailHide">
+    <image src='/images/class/returnWin.png' class="returnWin" />
+  </view>
+
+</view>

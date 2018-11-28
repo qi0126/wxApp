@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "selectCommon": "/pages/acommon/select/select"
+  },
+  "navigationBarTitleText": "搜索结果"
+}

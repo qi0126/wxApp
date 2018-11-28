@@ -1,0 +1,116 @@
+g<import src="../../../utils/wxParse/wxParse.wxml" />
+
+<view class='topIcon'> 
+  <view class='topi-box' bindtap='goShop' >
+    <image src="/images/me/img-shop.png"></image>
+    <view class='topi-num' wx:if='{{totalCount !== 0}}'>{{totalCount}}</view>
+  </view>
+</view> 
+
+<view class='swiperWrap'>
+  <swiper class="swiper-box" vertical="{{false}}" current="{{currentSwiper}}" bindchange="swiperChange" autoplay="true" interval="5000" circular="true">
+    <swiper-item wx:for="{{proData.images}}" wx:key="{{item.id}}">
+      <image src="{{$img}}{{item.imageUrl}}" />
+    </swiper-item>
+  </swiper> 
+
+  <!--重置小圆点的样式  -->
+  <view class="dots">
+    <view wx:for="{{proData.images}}" wx:key="{{item.id}}" class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+  </view>
+
+  <view class='prodDes'> 
+    {{proData.productName}}
+  </view>
+  <view class='proPrice'>
+    ¥ {{proData.resalePrice}} 
+  </view>
+
+  <view class='proSize' bindtap='goShopCart'>
+    请选择尺寸/材质：>
+  </view>
+</view>
+
+<view class='des' wx:if="{{proData.designerListFrom}}">
+  <view class='def-left'>
+    <image src='{{$img}}{{proData.designerListFrom.designerImag}}'></image>
+  </view>
+  <view class='def-right'>
+    <view class='dr-tit'>{{proData.designerListFrom.designerName}}</view>
+    <view class='dr-info'>
+      <view class='dri-left'> <text class='c3 f28' style='margin-right: 18rpx'>{{proData.designerListFrom.sex}}</text> <text class='c6 f24'>{{proData.countryName}}</text> </view>
+      <view class='dri-right' catchtap='openDes' >> 更多</view>
+    </view>
+  </view>
+</view> 
+
+<!-- 商品描述 -->
+<view class='goodsWrap'> 
+  <view class='goodsTitle'>/ 商品描述 /</view>
+  <view class='row'>
+    <view class='col-1'>产品类型：</view>
+    <view class='col-2'>{{proData.categoryName}}</view>
+  </view>
+  <view class='row' wx:if="{{proData.seriecs}}">
+    <view class='col-1'>产品系列：</view>
+    <view class='col-2  row-series'>
+      <text>{{proData.categoryName}}</text>
+      <view class='box-ser' bindtap='openSeries' >系列描述</view>
+    </view>
+  </view>
+  <view class='row'>
+    <view class='col-1'>名称：</view>
+    <view class='col-2'> {{proData.productName}}</view>
+  </view>
+  <view class='row'>
+    <view class='col-1'>材质：</view>
+    <view class='col-2'> {{texture}}</view>
+  </view>
+  <view class='row'>
+    <view class='col-1'>尺寸：</view>
+    <view class='col-2'>{{size}}</view>
+  </view>
+
+  <view class='goodsCaption'>
+    <view class='line'></view>
+    <view class='text'>宝石描述</view>
+  </view>
+  <view class='textDes'>
+    {{proData.productDescription}}
+  </view>
+
+  <view class='goodsCaption'>
+    <view class='line'></view>
+    <view class='text'>图文详情</view>
+  </view>
+
+  <view class='pictureDes'>
+    <template is="wxParse" data="{{wxParseData: article.nodes}}" />
+  </view>
+ 
+  <!-- 购物车 -->
+  <addSize result="{{result}}" id="addSize" image="{{result.images[0].imageUrl}}" oneList="{{oneList}}" twoList="{{twoList}}" threeList="{{threeList}}" fourList="{{fourList}}" propShow="{{propShow}}" bind:cancelEvent="cancelEvent" bind:changeParams="changeParams">
+  </addSize>
+
+</view>
+
+<!-- 底部 -->
+<view class='footer' hidden='{{propShow}}'>
+  <button class='btn btn-default' bindtap='goShopCart'>放入购物袋</button>
+  <!-- <view bindtap='goShopCart'>放入购物袋</view> -->
+  <view class='line'>|</view>
+  <!-- <view>买单</view> -->
+  <button class='btn btn-default' bindtap='goPay'>买单</button>
+</view>
+
+<view class='footer' hidden='{{!propShow}}'>
+  <button class='btn btn-default' bindtap='handleTrue'>确定</button>
+</view>
+
+<!-- 登陆弹窗 -->
+<login id="showLogin" bind:loginTrue="loginTrue"></login>
+
+<!-- 侧边栏设计师 -->
+<slideLayer id="design" result="{{proData.designerListFrom}}" bind:handleSearch="handleSearch" > </slideLayer>
+<!-- 侧边栏系列描述 -->
+<seriesDesc id="desc" proData="{{proData}}" bind:handleSearch="searSerise" > </seriesDesc>

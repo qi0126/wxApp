@@ -1,0 +1,95 @@
+Page {
+  display: flex;
+  flex-direction: column;
+}
+
+.designerIndex {
+  width: 750rpx;
+  /* height: 988rpx; */
+  position: absolute;
+}
+
+.indexTxtDiv {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+
+.indexTxtOne {
+  margin-top: 177rpx;
+  font-size: 50rpx;
+}
+
+.indexTxtTwo {
+  margin-top: 42rpx;
+  font-size: 28rpx;
+  color: #c3a25f;
+  font-weight: bold;
+}
+
+.indexTxtDiv view {
+  text-align: center;
+}
+
+.designerIndexTxtBack {
+  width: 308rpx;
+  margin: 0 auto;
+  position: absolute;
+  opacity: 0.6;
+}
+
+.enterImgDiv {
+  position: relative;
+  width: 308rpx;
+  height: 103rpx;
+  left: 29%;
+  text-align: center;
+  margin-top: 381rpx;
+}
+
+.enterImgTxt {
+  padding: 30rpx 0 0 50rpx;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.search-box {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 672rpx;
+  height: 64rpx;
+  margin-top: 39rpx;
+  margin-bottom: 33rpx;
+  background-color: #eee;
+}
+
+.searchInput {
+  color: #C1C1C1;
+  padding: 0 10rpx;
+  padding-left: 20rpx;
+}
+
+.search-img {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.placeholder {
+  font-size: 28rpx;
+  color: #c1c1c1;
+}
+
+.indexImgBigDiv {
+  position: relative;
+}
+
+image {
+  display: block;
+}

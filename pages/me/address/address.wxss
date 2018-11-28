@@ -1,0 +1,96 @@
+page {
+  padding-bottom: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f8f8f8
+}
+
+.list {
+  flex: 1
+}
+
+.item {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290rpx;
+  background: #fff;
+}
+
+.item .info {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  padding-top: 36rpx;
+  min-height: 190rpx;
+  border-bottom: 1px solid #E5E5E5
+}
+
+.info .name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 30rpx;
+}
+
+.info .phone {
+  font-size: 30rpx;
+}
+
+.addr {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #666
+}
+
+.handle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 38rpx;
+}
+
+.handle .sure {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999
+}
+
+.handle .sure > image {
+  margin-right: 14rpx;
+}
+
+.handle .h-hand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.handle .h-hand > image {
+}
+
+.handle .h-hand > image:first-of-type {
+  margin-right: 60rpx;
+}
+
+.bottom {
+  width: 100%;
+  position: fixed;
+  bottom: 0
+}
+
+.item.on {
+  background: #E8E8E8
+}
+
+.nothing {
+  margin-top: 340rpx;
+}
+
+.nothing > view {
+  margin-top: 20rpx;
+}

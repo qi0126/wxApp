@@ -1,0 +1,57 @@
+<view class="topMenuOne" style="flex-direction:row;">
+  <view class="topOneLeft">
+    <image src="/images/index/proPoint.png" class="proPoint" /> {{categoryName}}
+    <span class="leftPonitTwo">
+      <image src="/images/index/icon-back.png" mode='widthFix'  class="icon-back" />
+    </span>
+  </view>
+  <view class="topOneRigth">
+    <span class="topRigthBtn">
+      <button class="btn btn-default selectBtnOne" bindtap="show">筛选</button>
+    </span>
+    <span class="topRigthImg">
+      <image src="/images/me/img-shop.png" class="icon-shop" catchtap='goShop' />
+    </span>
+  </view>
+</view>
+
+<view class="flex-wrp">
+  <view wx:if="{{proList.length === 0}}" class="noProDiv">
+    <image src="/images/noImg/img-nopro.png" class="noPro" mode='widthFix' />
+    <view class='noProText'>暂无您要的产品哦！</view>
+  </view>
+
+  <view class="flex-item imDispBigDiv" wx:for="{{proList}}" wx:key="{{item.id}}">
+<<<<<<< HEAD
+    <image src="{{$img}}{{item.productImageUrl}}" class="imgDisp" catchtap='proToDetail' data-item='{{item}}' />
+    <view class="imgNameTop" catchtap='proToDetail' data-item='{{item}}' >{{item.productName}}</view>
+    <view class="imgPriceDiv"> 
+      ¥ {{item.resalePrice}}
+      <image src="/images/index/love.png" wx:if="{{item.checkWish == false}}" class="love"  catchtap='addWish' data-item='{{item}}'/>
+      <image src="/images/index/addedWish.png" wx:else class="love"  catchtap='addWish' data-item='{{item}}'/>
+=======
+    <view class='imgDispTop'>
+      <image src="{{$img}}{{item.productImageUrl}}" class="imgDisp" catchtap='proToDetail' data-item='{{item}}'/>
+    </view>
+    <view class="imgNameTop" catchtap='proToDetail' data-item='{{item}}'>{{item.productName}}</view>
+    <view class="imgPriceDiv">
+       ¥ {{item.resalePrice}}
+      <view hidden="{{item.wishHide}}">
+        <image src="/images/index/love.png" wx:if="{{item.checkWish == false}}" class="love" catchtap='addWish' data-item='{{item}}' />
+        <image src="/images/index/addedWish.png" wx:else class="love" catchtap='addWish' data-item='{{item}}' />
+      </view>
+>>>>>>> origin/master
+    </view>
+  </view>
+</view>
+
+  <view class='loadmore' hidden='{{result.rowSize < 4}}'>
+    <view class="loading_box" hidden="{{loadMore}}">
+      <view class="loading_rotate_cube_parent">
+        <view class="loading_rotate_cube"></view>
+      </view>
+    </view>
+    <text hidden="{{!loadMore}}">没有更多数据了</text>
+  </view>
+
+    <selectCommon id="selectCommon" selectData="{{proAllData}}"  categoryId='{{categoryId}}'  dataCate='DesignerPro' bind:returnData='_returnData'></selectCommon>

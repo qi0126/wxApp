@@ -1,0 +1,173 @@
+
+.shopCartWarp {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin-bottom: 100rpx;
+}
+
+.shopCartWarp .shopCartcontent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 910rpx; */
+  background-color: #fff;
+} 
+
+.slideh {
+  height: 100vh
+}
+
+.shopCartHead {
+  height: 198rpx;
+  border-bottom: 1px solid #E7E7E7;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shopCartHead .picWrap {
+  width: 202rpx;
+  height: 202rpx;
+  margin-left: 37rpx;
+}
+
+.shopCartHead .picWrap .shopProduct {
+  width: 202rpx;
+  height: 202rpx;
+  border: 1rpx solid #B5B5B5;
+  position: absolute;
+  top: -63rpx;
+}
+
+.shopCartHead .Bitmap{
+  width: 40rpx;
+  height: 35rpx;
+  position: absolute;
+  top: -58rpx;
+  right: 33rpx;
+}
+
+.shopCartHead .textWrap {
+  margin-left: 66rpx;
+}
+
+.shopCartHead .textWrap .shopPirce {
+  font-size:42rpx;
+  font-weight:normal;
+  color:rgba(0,0,0,1);
+}
+
+.shopCartHead .textWrap .shopNumber {
+  font-size:26rpx;
+  font-weight:300;
+  color:rgba(153,153,153,1);
+  margin-top: 26rpx;
+}
+
+.shopCartMiddle {
+  padding-top: 30rpx;
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap:wrap;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.shopCartMiddle .leftBtnWrap{
+  width: 282rpx;
+}
+
+.shopCartMiddle .rightBtnWrap{
+  width: 282rpx;
+}
+
+.shopCartMiddle .shopPapiton{
+  font-size:30rpx;
+  font-weight:300;
+  color:rgba(51,51,51,1);
+  letter-spacing:4rpx;
+}
+
+.shopCartMiddle .leftBtnWrap .leftBtn{
+  width:282rpx;
+  height:83rpx;
+  background:rgba(40,40,40,1);
+  color: #fff;
+  line-height: 83rpx;
+  text-align: center;
+  margin-top: 28rpx;
+  position: relative;
+}
+
+.shopCartMiddle .rightBtnWrap .rightBtn{
+  width:282rpx;
+  height:83rpx;
+  background:rgba(40,40,40,1);
+  color: #fff;
+  line-height: 83rpx;
+  text-align: center;
+  margin-top: 28rpx;
+  position: relative;
+}
+
+.shopCartMiddle .backArrow{
+  width: 22rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  position: absolute;
+  right: 41rpx;
+  bottom: 28rpx;
+}
+
+.shopCartFoot {
+  padding-left: 38rpx;
+  padding-bottom: 60rpx;
+}
+
+.shopCartFoot .computNumber {
+  font-size:30rpx;
+  font-weight:300;
+  letter-spacing:r4px;
+  margin-top: 60rpx;
+}
+
+.shopCartFoot .computBtn {
+  display: flex;
+  margin-top: 26rpx;
+  width:402rpx;
+  height:83rpx;
+  border:1px solid #979797;
+  align-items: center;
+}
+
+.shopCartFoot .computBtn .minus:active, .shopCartFoot .computBtn .add:active {
+  color: #C1A15C;
+}
+
+.shopCartFoot .minus{
+  width: 130rpx;
+  height: 69rpx;
+  border-right:1px solid #979797;
+  text-align: center;
+  line-height: 69rpx;
+}
+
+.shopCartFoot .number{
+  width: 130rpx;
+  height: 69rpx;
+  border-right:1px solid #979797;
+  text-align: center;
+  line-height: 69rpx;
+}
+
+.shopCartFoot .add{
+  width: 130rpx;
+  height: 69rpx;
+  text-align: center;
+  line-height: 69rpx;
+}

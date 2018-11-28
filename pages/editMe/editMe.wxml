@@ -1,0 +1,48 @@
+<view class='info'>
+  <view class='i-col'>
+    <view class='ic-left'>昵称</view>
+    <view class='ic-right'>{{user.nickName}}</view>
+  </view>
+  <view class='i-col'>
+    <view class='ic-left'>性别</view>
+    <view class='ic-right' wx:if="{{user.sex === '1'}}" >男</view>
+    <view class='ic-right' wx:else >女</view>
+  </view>
+  <view class='i-col'>
+    <view class='ic-left'>城市</view>
+    <view class='ic-right'>{{user.region}}</view>
+  </view>
+  <view class='i-col'>
+    <view class='ic-left'>姓名</view>
+    <view class='ic-right'> 
+      <view class='c00 name'> <input placeholder='未填写' bindinput='getName' value="{{user.realName}}" placeholder-class="c00 name"></input> </view>
+      <view class='icr-img'> <image src='/images/me/icon-back.png' mode='widthFix' style='width: 20rpx' ></image> </view>
+    </view>
+  </view>
+  <view class='i-col'>
+    <view class='ic-left'>联系方式</view>
+    <!-- <view class='ic-right' > -->
+    <view class='ic-right' wx:if="{{!user.phone}}" >
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='btn icrb'>微信获取</button> 
+      <button bindtap='goCode'  class='btn icrb'>验证码获取</button> 
+    </view>
+    <view class='ic-right' wx:else>{{user.phone}}</view>
+    <!-- <view class='ic-right'>{{user.phone}}</view> -->
+    
+  </view>
+  <view class='i-col'>
+    <view class='ic-left'>生日</view>
+    <view class='ic-right'>
+      <!-- <view class='c00'>未填写</view> -->
+      <view class='c00'>  <picker bindchange="bindPickerChange"  mode="date" value="{{birthday}}">
+    <view class="picker">
+      {{birthday  || '未填写'}}
+    </view>
+  </picker></view>
+      <view class='icr-img'> <image src='/images/me/icon-back.png' mode='widthFix' style='width: 20rpx' ></image> </view>
+    </view>
+  </view>
+</view>
+
+
+<button catchtap='saveInfo' class='btn btn-default'>保存信息</button>
